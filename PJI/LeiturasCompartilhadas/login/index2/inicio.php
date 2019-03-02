@@ -1,5 +1,14 @@
+<?php
+session_start();
+
+if($_SESSION["logado"]=="on"){
+    
+    
+
+
+?>
 <!doctype html>
-<html lang="en">
+<html lang="pt">
   <head>
     <title>BrotherlyLove Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
@@ -27,11 +36,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <ul class="block-45-list">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Ministries</a></li>
-            </ul>
+            <p style="color:white;font-size:15px">Olá, <?=$_SESSION["nomeUser"];?></p>
           </div>
           <div class="col-md-6 text-md-right">
             <ul class="block-45-icons">
@@ -56,16 +61,14 @@
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="inicio.php">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="ministry.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ministries</a>
+                <a class="nav-link dropdown-toggle" href="ministry.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="ministry.html">Outreach Ministry</a>
-                  <a class="dropdown-item" href="ministry.html">Men's Ministry</a>
-                  <a class="dropdown-item" href="ministry.html">Women's Ministry</a>
-                  <a class="dropdown-item" href="ministry.html">Children's Ministry</a>
-                  <a class="dropdown-item" href="ministry.html">Youth Ministry</a>
+                  <a class="dropdown-item" href="perfil.php">Meu perfil</a>
+                  <a class="dropdown-item" href="../deslogar.php">Sair</a>
+                  
                 </div>
 
               </li>
@@ -514,3 +517,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/main.js"></script>
   </body>
 </html>
+
+<?php
+}else{
+    header("location:../index.php");
+}
+
+?>

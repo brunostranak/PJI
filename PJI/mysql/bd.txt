@@ -9,6 +9,7 @@ idUser INT AUTO_INCREMENT,
 nomeUser VARCHAR(60),
 email VARCHAR(60),
 senha VARCHAR(20),
+imagem VARCHAR(20),
 PRIMARY KEY(idUser)
 ) engine = innodb;
 

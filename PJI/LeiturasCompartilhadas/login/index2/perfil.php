@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+require("../conexaobd.php");
+$cnx= conexao();
+$sql="SELECT * from usuarios where idUser='$_SESSION[idUser]'";
+              
+$resultado=mysqli_query($cnx,$sql);
+$registro=mysqli_fetch_assoc($resultado);
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,11 +39,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <ul class="block-45-list">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Ministries</a></li>
-            </ul>
+              <p style="color:white;font-size:15px">Olá, <?=$_SESSION["nomeUser"];?></p>
           </div>
           <div class="col-md-6 text-md-right">
             <ul class="block-45-icons">
@@ -48,27 +56,30 @@
      
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="index.html">Brotherly<span class="fa fa-heart text-primary"></span>  </a>
+          <a class="navbar-brand absolute" href="perfil.php">Meu Perfil</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          
 
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                  <a class="nav-link" href="inicio.php">Home</a>
               </li>
+              
               <li class="nav-item dropdown active">
-                <a class="nav-link dropdown-toggle" href="ministry.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ministries</a>
+                  
+                <a class="nav-link dropdown-toggle" href="perfil.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="ministry.html">Outreach Ministry</a>
-                  <a class="dropdown-item" href="ministry.html">Men's Ministry</a>
-                  <a class="dropdown-item" href="ministry.html">Women's Ministry</a>
-                  <a class="dropdown-item" href="ministry.html">Children's Ministry</a>
-                  <a class="dropdown-item" href="ministry.html">Youth Ministry</a>
+                  <a class="dropdown-item" href="perfil.php">Meu Perfil</a>
+                  
+                  <a class="dropdown-item" href="../deslogar.php">Sair</a>
+                  
                 </div>
 
               </li>
+              
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="sermon.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sermons</a>
@@ -95,18 +106,45 @@
           </div>
         </div>
       </nav>
+        
     </header>
     <!-- END header -->
 
-    <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/big_image_1.jpg);">
+    
       <div class="container">
         <div class="row align-items-center justify-content-center site-hero-inner">
+            
+            <div style="margin-top:25%" class="block-13">
+                <form class="mb-5 element-animate" style="margin-top: -70%" action="../atualizarinfo.php" method="POST" enctype="multipart/form-data">
+                    <img class="mb-5 element-animate" style="border-radius: 50px; " width="150px" height="200px" src="../imagens/<?=$registro["imagem"];?>" alt="Foto de Perfil">  
+                    
+                    <br>
+                    <input type="file" name="imagem">
+                
+                    <br>
+                    <button type='submit'>Enviar</button>
+                </form>
+                </div>
+            
           <div class="col-md-8 text-center">
   
             <div class="mb-5 element-animate">
               <div class="block-17">
+                  
                 <h1 class="heading mb-4">Outreach Ministry</h1>
-                <div class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde doloremque necessitatibus quidem itaque illum nulla dolores, tempora corporis eius, fuga natus esse rem animi. Doloribus animi, reiciendis voluptatum eum ullam.</div>
+                <h1 style="margin-left:55%" >Contato</h1>
+                <div class="lead" style="margin-left:55%">Email:<?=$registro["email"]?> 
+                    <br>
+                    Telefone:<?php if(empty($registro["telefone"])){
+                        ?>
+                       
+                
+                    <?php
+                    }
+                    ?>
+
+                     
+                    </div>
               </div>
             </div>
             
@@ -122,19 +160,11 @@
 
     <section class="site-section bg-light">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="block-36">
-              <h3 class="block-36-heading">Ministries Links</h3>
-              <ul>
-                <li class="active"><a>Outreach Ministry</a></li>
-                <li><a href="ministry.html">Men's Ministry</a></li>
-                <li><a href="ministry.html">Women's Ministry</a></li>
-                <li><a href="ministry.html">Children's Ministry</a></li> 
-                <li><a href="ministry.html">Youth Ministry</a></li>
-              </ul>
-            </div>
-          </div>
+        
+          
+            
+                
+              
           <div class="col-md-8 pl-md-5">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus animi explicabo asperiores accusantium laborum distinctio quos, placeat eligendi nesciunt aliquid ut corrupti id sapiente libero, quod doloremque minima odit debitis minus. Sequi enim quibusdam, doloremque iste iure? Excepturi, ad, ratione!</p>
             <p><img src="images/big_image_1.jpg" alt="Image placeholder" class="img-fluid"></p>
@@ -143,7 +173,7 @@
             <p>Rerum, molestias ipsa doloremque velit distinctio laboriosam quidem ratione minima inventore. Blanditiis quaerat ipsa nobis fugit repudiandae, at repellendus itaque odit! Quibusdam ducimus exercitationem optio dolore, modi repudiandae beatae enim incidunt, saepe atque amet suscipit, aliquam placeat pariatur ipsam facilis.</p>
             <p>A suscipit facilis minima fugiat ipsum provident pariatur, culpa! Quia fuga aperiam, error beatae vel dolorem velit eos incidunt ducimus animi nostrum, ipsa impedit praesentium libero voluptatem est magni doloribus! Atque illum, aut deleniti adipisci natus quas, beatae nihil sit!</p>
           </div>
-        </div>
+        
       </div>
     </section>
 
