@@ -10,6 +10,7 @@ nomeUser VARCHAR(60),
 email VARCHAR(60),
 senha VARCHAR(20),
 imagem VARCHAR(20),
+telefone VARCHAR(20),
 PRIMARY KEY(idUser)
 ) engine = innodb;
 
@@ -25,4 +26,7 @@ resumo VARCHAR(300),
 PRIMARY KEY (idLivro),
 FOREIGN KEY (idUser) REFERENCES usuarios (idUser)
 ) engine = innodb;
+
+
+
 

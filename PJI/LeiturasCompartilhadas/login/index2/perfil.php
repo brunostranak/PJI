@@ -9,6 +9,20 @@ $sql="SELECT * from usuarios where idUser='$_SESSION[idUser]'";
 $resultado=mysqli_query($cnx,$sql);
 $registro=mysqli_fetch_assoc($resultado);
 
+
+
+
+$sql2="SELECT * FROM livros where idUser='$_SESSION[idUser]'";
+
+$resultado2=mysqli_query($cnx,$sql2);
+while($livru=mysqli_fetch_assoc($resultado2)){
+    
+    
+    
+    $livros[]=$livru;
+
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -153,10 +167,64 @@ $registro=mysqli_fetch_assoc($resultado);
       </div>
     </section>
     <!-- END section -->
+    <div class="container">
 
-    
+        <form action="addlivro.php" method="post" id="livroform">
+            
+            <span style="color:black">Nome da obra</span> <input required type="text" name="nome">
+            <br>
+            <br>
+            <span style="color:black">Autor </span> <input type="text" required name="autor">
+            <br>
+            <br>
+            <span style="color:black">Editora </span> <input type="text" required name="editora">
+            <br>
+            <br>
+            <span style="color:black">Breve resumo </span><br> <textarea form="livroform" required name="resumo" rows="10" cols="50"></textarea>
+            <br>
+            <button type="submit">Enviar</button>
+                <br>
+        </form>
+        <h1 style="text-align:center">Meus livros</h1>
+        <?php
+       
+        
+        if(!empty($livros)){
+            
+            
+        for($i=0;$i<count($livros);$i++){
+            
+            foreach ($livros as $livro){
+?>
+        <br>
+        <br>
+        
+    <div  align="center" class="block-13">
+        <div>
+          <div class="item">
+            <div class="block-20">
+              <figure>
+                <a href="#"><img src="images/image_3.jpg" alt="Image placeholder" class="img-fluid"></a>
+              </figure>
+              <div class="text text-center">
+                <h3 class="heading"><a href="#"><?=$livro["nomeLivro"];?></a></h3>
+                <p>Autor: <?=$livro["autor"];?></p>
+                <p>Editora: <?=$livro["editora"];?></p>
+                <p><a href="#">Read More</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    </div>
 
-    
+   <?php
+            }
+        }
+        }
+   ?>
+        
+    </div>
 
     <section class="site-section bg-light">
       <div class="container">

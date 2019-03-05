@@ -3,6 +3,13 @@ session_start();
 
 
 ?>
+
+
+
+
+ 
+
+
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -39,9 +46,13 @@ session_start();
   <form action="cadastrar.php" method="post">
       
     <input required type="text" placeholder="Nome" name="nome">
-    <input required type="password" placeholder="Senha" name="senha">
-   
     <input required type="email" placeholder="Email" name="email"/>
+   
+
+
+    <input required type="password" placeholder="Senha" name="senha"/>
+   
+    
     <button type="submit">Cadastrar</button>
     <p class="message" style="color:red"><?php
     
