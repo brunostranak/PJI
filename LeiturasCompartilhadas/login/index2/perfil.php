@@ -201,24 +201,20 @@ while($livru=mysqli_fetch_assoc($resultado2)){
         <br>
         <br>
         
-    <div  align="center" class="block-13">
-        <div>
-          <div class="item">
-            <div class="block-20">
-              <figure>
-                <a href="#"><img style="width:250px; height:250px" src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" class="img-fluid"></a>
-              </figure>
-              <div class="text text-center">
-                <h3 class="heading"><a href="#"><?=$livro["nomeLivro"];?></a></h3>
-                <p>Autor: <?=$livro["autor"];?></p>
-                <p>Editora: <?=$livro["editora"];?></p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
+    
         
-    </div>
+          
+            
+        <div style="text-align:center;" >   
+                  
+                <a href="#"><img style="width:250px;height:350px;padding:20px" src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
+                <a href="#"><img style="width:250px;height:350px;padding:20px" src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
+                <a href="#"><img style="width:250px;height:350px;padding:20px" src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
+        </div>
+              
+            
+          
+        
 
    <?php
             }
