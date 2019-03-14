@@ -1,0 +1,33 @@
+DROP DATABASE PJI;
+CREATE DATABASE PJI;
+USE PJI;
+
+
+
+CREATE TABLE usuarios(
+idUser INT AUTO_INCREMENT,
+nomeUser VARCHAR(60),
+email VARCHAR(60),
+senha VARCHAR(20),
+imagem VARCHAR(20),
+telefone VARCHAR(20),
+PRIMARY KEY(idUser)
+) engine = innodb;
+
+CREATE TABLE livros(
+idLivro INT AUTO_INCREMENT,
+idUser INT,
+nomeLivro VARCHAR(60),
+autor VARCHAR(60),
+editora VARCHAR(60),
+status VARCHAR(60),
+resumo VARCHAR(300),
+imagem VARCHAR(20),
+
+PRIMARY KEY (idLivro),
+FOREIGN KEY (idUser) REFERENCES usuarios (idUser)
+) engine = innodb;
+
+
+
+
