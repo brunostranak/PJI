@@ -122,7 +122,7 @@ if($_SESSION["logado"]=="on"){
             <div class="mb-5 element-animate">
               <div class="block-17">
                 <h1 class="heading mb-4">Leituras Compartilhadas.</h1>
-                <p><a href="#" class="btn btn-primary-white py-3 px-5">About Us</a> <a href="#" class="text-white ml-4"> <span class="ion-ios-location mr-2"></span> Visit Our Church</a></p>
+                <p><a href="sobrenos.php" class="btn btn-primary-white py-3 px-5">Sobre nós</a> <a href="#" class="text-white ml-4"> <span class="ion-ios-location mr-2"></span> Visit Our Church</a></p>
               </div>
             </div>
             
@@ -184,8 +184,8 @@ if($_SESSION["logado"]=="on"){
         </div> -->
       </div>
       <?php
+      if(!empty($livros)){
       
-      for($i=0;$i<count($livros);$i++){
           
           foreach($livros as $livro){
       
@@ -452,7 +452,7 @@ if($_SESSION["logado"]=="on"){
               </div>
               <div class="col-md-4">
                 <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
+                  <li><a href="sobrenos.php">About Us</a></li>
                   <li><a href="#">Location</a></li>
                   <li><a href="#">Contact</a></li>
                   <li><a href="#">Privacy &amp; Policy</a></li>
