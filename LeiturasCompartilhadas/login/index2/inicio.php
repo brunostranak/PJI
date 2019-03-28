@@ -26,7 +26,7 @@ if($_SESSION["logado"]=="on"){
     <title>BrotherlyLove Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" type="text/css" href="livros.css">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
 
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -139,7 +139,7 @@ if($_SESSION["logado"]=="on"){
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2 class="heading">Church Services</h2>
+              <h2 class="heading">Obras disponíveis</h2>
             </div>
           </div>
         </div>
@@ -182,98 +182,33 @@ if($_SESSION["logado"]=="on"){
           </div>
         </div> -->
       </div>
-      <?php
-      if(!empty($livros)){
-      
-          
-          foreach($livros as $livro){
-      
-      
-      ?>
-      <div class="block-13">
-        <div class="nonloop-block-13 owl-carousel">
-          <div class="item">
-            <div class="block-20">
-              <figure>
-                <a href="#"><img src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" class="img-fluid"></a>
-              </figure>
-              <div class="text text-center">
-                <h3 class="heading"><a href="#"><?=$livro["nomeLivro"];?></a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus asperiores exercitationem cupiditate!</p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="block-20">
-              <figure>
-                <a href="#"><img src="images/image_2.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </figure>
-              <div class="text text-center">
-                <h3 class="heading"><a href="#">Piano Lesson for Children</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus asperiores exercitationem cupiditate!</p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="block-20">
-              <figure>
-                <a href="#"><img src="images/image_1.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </figure>
-              <div class="text text-center">
-                <h3 class="heading"><a href="#">Bible studies like Bereans did</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus asperiores exercitationem cupiditate!</p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
+        
+              <div style="text-align:center" class="container">
 
-          <div class="item">
-            <div class="block-20">
-              <figure>
-                <a href="#"><img src="images/image_3.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </figure>
-              <div class="text text-center">
-                <h3 class="heading"><a href="#">The Truth will set us free</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus asperiores exercitationem cupiditate!</p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="block-20">
-              <figure>
-                <a href="#"><img src="images/image_2.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </figure>
-              <div class="text text-center">
-                <h3 class="heading"><a href="#">Piano Lesson for Children</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus asperiores exercitationem cupiditate!</p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="block-20">
-              <figure>
-                <a href="#"><img src="images/image_1.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </figure>
-              <div class="text text-center">
-                <h3 class="heading"><a href="#">Bible studies like Bereans did</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus asperiores exercitationem cupiditate!</p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-          </div>
+      <?php
+
+
+
+        if(!empty($livros)){
+            foreach ($livros as $livro){
+
+
+?>
+
+
+                 
+        <a href="sobrelivro.php?id=<?=$livro["idLivro"];?>"><img class="image"
+style="width:250px;height:350px;padding:30px;"
+src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
+
+
+   <?php
+            }
+        }
+
+   ?>
 
         </div>
-      </div>
-    </section>
-    
-    <?php
-          }
-      }
-    ?>
 
     
                       
