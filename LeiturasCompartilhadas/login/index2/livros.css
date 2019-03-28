@@ -1,0 +1,6 @@
+.image:hover{
+  opacity: 0.4;
+  transition: .6s ease;
+  backface-visibility: hidden;
+}
+
