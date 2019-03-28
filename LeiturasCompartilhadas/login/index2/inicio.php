@@ -122,8 +122,6 @@ if($_SESSION["logado"]=="on"){
             <div class="mb-5 element-animate">
               <div class="block-17">
                 <h1 class="heading mb-4">Leituras Compartilhadas.</h1>
-                <p><a href="sobrenos.php" class="btn btn-primary-white py-3 px-5">Sobre nós</a> <a href="#" class="text-white ml-4"> <span class="ion-ios-location mr-2"></span> Visit Our Church</a></p>
-              </div>
             </div>
             
           </div>
@@ -276,84 +274,20 @@ if($_SESSION["logado"]=="on"){
       }
     ?>
 
-    <section class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mb-5">
+    
+                      
             
-            <div class="block-44 d-flex mb-3">
-              <div class="block-44-image"><img src="images/image_tall_1.jpg" alt="Image placeholder"></div>
-              <div class="block-44-text">
-                <h3 class="block-44-heading"><a href="#">Rebuilding The Walls</a></h3>
-                <div class="block-44-meta">Posted on June 28, 2018, Pastor Gregg Smith</div>
-                <div class="block-44-icons">
-                  <a href="#" class=""><span class="fa fa-video-camera"></span></a>
-                  <a href="#" class=""><span class="fa fa-headphones"></span></a>
-                  <a href="#" class=""><span class="fa fa-cloud-download"></span></a>
-                  <a href="#" class=""><span class="fa fa-book"></span></a>
-                </div>
-              </div>
-            </div>
 
-            <div class="block-44 d-flex mb-3">
-              <div class="block-44-image"><img src="images/image_tall_2.jpg" alt="Image placeholder"></div>
-              <div class="block-44-text">
-                <h3 class="block-44-heading"><a href="#">Jonah's Message To Neniveh</a></h3>
-                <div class="block-44-meta">June 28, 2018, Pastor Gregg Smith</div>
-                <div class="block-44-icons">
-                  <a href="#" class=""><span class="fa fa-video-camera"></span></a>
-                  <a href="#" class=""><span class="fa fa-headphones"></span></a>
-                  <a href="#" class=""><span class="fa fa-cloud-download"></span></a>
-                  <a href="#" class=""><span class="fa fa-book"></span></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="block-44 d-flex mb-3">
-              <div class="block-44-image"><img src="images/image_tall_3.jpg" alt="Image placeholder"></div>
-              <div class="block-44-text">
-                <h3 class="block-44-heading"><a href="#">New Jerusalem</a></h3>
-                <div class="block-44-meta">June 28, 2018, Pastor Gregg Smith</div>
-                <div class="block-44-icons">
-                  <a href="#" class=""><span class="fa fa-video-camera"></span></a>
-                  <a href="#" class=""><span class="fa fa-headphones"></span></a>
-                  <a href="#" class=""><span class="fa fa-cloud-download"></span></a>
-                  <a href="#" class=""><span class="fa fa-book"></span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-5">
             
-            <div class="section-heading mb-5">
-              <h2 class="heading">Latest Events</h2>
-            </div>
+           
 
-            <div class="block-44 d-flex mb-3">
-              <div class="block-44-image"><img src="images/image_tall_4_large.jpg" alt="Image placeholder"></div>
-              <div class="block-44-text">
-                <h3 class="block-44-heading"><a href="#">Weekend Outreach</a></h3>
-                <div class="block-44-meta mb-2">Posted on June 28, 2018, Pastor Gregg Smith</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita alias dolore voluptate.</p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
-
-            <div class="block-44 d-flex mb-3">
-              <div class="block-44-image"><img src="images/image_tall_5_large.jpg" alt="Image placeholder"></div>
-              <div class="block-44-text">
-                <h3 class="block-44-heading"><a href="#">No Longer Slave To Sin</a></h3>
-                <div class="block-44-meta mb-2">Posted on June 28, 2018, Pastor Gregg Smith</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita alias dolore voluptate.</p>
-                <p><a href="#">Read More</a></p>
-              </div>
-            </div>
+            
 
 
           </div>
-        </div>
-      </div>
-    </section>
+        
+      
+    
 
     <div class="site-section bg-light">
       <div class="container">
@@ -370,51 +304,22 @@ if($_SESSION["logado"]=="on"){
             <div class="block-33">
               <div class="text mb-5">
                 <blockquote>
-                  <p>&rdquo; Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore accusantium tempore dolores sunt. &ldquo;</p>
+                  <p>&rdquo;Com algum distanciamento, os bons romances se tornam perfeitamente parecidos com fenômenos naturais; esquecemos que possuem um autor, os aceitamos como pedras ou árvores, porque estão aí, porque existem. &ldquo;</p>
                 </blockquote>
               </div>
               <div class="vcard d-flex">
-                <div class="image align-self-center ml-auto order-2 ml-3"><img src="images/person_3.jpg" alt="Person here"></div>
+                <div class="image align-self-center ml-auto order-2 ml-3"><img src="images/sartre.jpg" alt="Person here"></div>
                 <div class="name-text align-self-center ml-auto order-1 text-right">
-                  <h2 class="heading">Martin Newmansfield</h2>
-                  <span class="meta">New York</span>
+                  <h2 class="heading">Jean-Paul Sartre</h2>
+                  <!--<span class="meta">New York</span>!-->
                 </div>
               </div>
             </div>
 
-          </div>
-          <div class="col-md-6 col-lg-4 mb-5">
-            <div class="block-33">
-              <div class="text mb-5">
-                <blockquote>
-                  <p>&rdquo; Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore accusantium tempore dolores sunt. &ldquo;</p>
-                </blockquote>
-              </div>
-              <div class="vcard d-flex">
-                <div class="image align-self-center ml-auto order-2 ml-3"><img src="images/person_2.jpg" alt="Person here"></div>
-                <div class="name-text align-self-center ml-auto order-1 text-right">
-                  <h2 class="heading">Evan Roosbelt</h2>
-                  <span class="meta">London</span>
-                </div>
-              </div>
-            </div>
-          </div>
+       
           <div class="col-md-6 col-lg-4 mb-5">
 
-            <div class="block-33">
-              <div class="text mb-5">
-                <blockquote>
-                  <p>&rdquo; Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore accusantium tempore dolores sunt. &ldquo;</p>
-                </blockquote>
-              </div>
-              <div class="vcard d-flex">
-                <div class="image align-self-center ml-auto order-2 ml-3"><img src="images/person_1.jpg" alt="Person here"></div>
-                <div class="name-text align-self-center ml-auto order-1 text-right">
-                  <h2 class="heading">Marilyn Smith</h2>
-                  <span class="meta">London</span>
-                </div>
-              </div>
-            </div>
+            
 
           </div>
         </div>
