@@ -23,6 +23,8 @@ while($livru=mysqli_fetch_assoc($resultado2)){
 
 }
 
+if($_SESSION["logado"]=="on"){
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -225,7 +227,7 @@ cols="50"></textarea>
 
 
 
-        <a href="#"><img class="image"
+            <a href="sobrelivro.php?id=<?=$livro['idLivro'];?>"><img class="image"
 style="width:250px;height:350px;padding:30px;"
 src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
 
@@ -429,3 +431,16 @@ stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
     <script src="js/main.js"></script>
   </body>
 </html>
+
+
+<?php
+
+
+
+}else{
+    
+    header("location:../index.php");
+}
+
+
+?>
