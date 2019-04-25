@@ -20,7 +20,7 @@ if($_SESSION["logado"]=="on"){
 <!doctype html>
 <html lang="pt">
   <head>
-    <title>BrotherlyLove Bootstrap 4 Template by Colorlib</title>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="livros.css">
@@ -113,13 +113,18 @@ if($_SESSION["logado"]=="on"){
 <div class="container">
     
     <h1 id="titulo" style="margin-top:;margin-left:2%;"><?=$livro["nomeLivro"]?></h1>
-    <div style="margin-left:60%" id="sinopse">
-        <p><?=$livro["resumo"];?></p>
-    </div>
     
-    <a href="#"><img class="image"
-style="width:250px;height:350px;padding:30px;"
-src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
+        <p  style="margin-left:60%;float:right" id="sinopse">
+            
+            <a href="#"><img class="image"
+style="width:250px;height:350px;padding:30px;margin-top:10%;float:left;margin-left:-20%"
+src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>        
+                    
+            
+            <?=$livro["resumo"];?></p>
+    
+    
+    
     
     
     
@@ -129,7 +134,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
 
     
   
-    <footer class="site-footer">
+    <footer style="clear:both" class="site-footer">
       <div class="container">
         <div class="row mb-5">
         <!--   <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
