@@ -106,8 +106,9 @@ aria-expanded="false">Perfil</a>
 
               </li>
 
-
+              <a href="addlivro.php"></a>
               <li class="nav-item dropdown">
+                  <a href="addlivro.php"></a>
                 <a class="nav-link dropdown-toggle" href="sermon.html"
 id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
 aria-expanded="false">Sermons</a>

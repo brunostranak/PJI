@@ -29,5 +29,20 @@ FOREIGN KEY (idUser) REFERENCES usuarios (idUser)
 ) engine = innodb;
 
 
+CREATE TABLE emprestimos(
+idEmprestimo INT AUTO_INCREMENT,
+idUser INT,
+idLivro INT,
+idEmprestante INT,
+dtInicio DATE,
+dtFim DATE,
+
+
+PRIMARY KEY (idEmprestimo),
+FOREIGN KEY (idUser) REFERENCES usuarios (idUser),
+FOREIGN KEY (idLivro) REFERENCES livros (idLivro)
+) engine = innodb;
+
+
 
 

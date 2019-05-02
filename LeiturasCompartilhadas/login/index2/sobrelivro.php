@@ -112,26 +112,40 @@ if($_SESSION["logado"]=="on"){
     <!-- END header -->
 <div class="container">
     
-    <h1 id="titulo" style="margin-top:;margin-left:2%;"><?=$livro["nomeLivro"]?></h1>
+    <h1 id="titulo" style="margin-left:2%;"><?=$livro["nomeLivro"]?></h1>
     
         <p  style="margin-left:60%;float:right" id="sinopse">
-            
-            <a href="#"><img class="image"
-style="width:250px;height:350px;padding:30px;margin-top:10%;float:left;margin-left:-20%"
-src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>        
+        <div class="container">
+            <img class="image"
+style="width:250px;height:350px;padding:30px;margin-top:10%;float:left;margin-left:"
+src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >    
                     
             
             <?=$livro["resumo"];?></p>
     
+        </div>
     
+        <br>
+  <?php
     
+    if($livro["status"]<>"afk"){
+        echo "<h5>Livro disponível para empréstimo</h5>";
+        
+        
     
-    
-    
+    ?>  
+        <a href="emprestar.php?id=<?=$livro['idLivro'];?>" 
+        <button type="submit">EMPRESTAR</button>
+        </a>
+      <?php
+    }
+    ?>
     
 </div>
     
-
+    <br>
+    
+    
     
   
     <footer style="clear:both" class="site-footer">
