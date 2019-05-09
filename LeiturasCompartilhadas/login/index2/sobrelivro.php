@@ -127,7 +127,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
     
         <br>
   <?php
-    
+    if( $livro["idUser"]<>$_SESSION["idUser"]){
     if($livro["status"]<>"afk"){
         echo "<h5>Livro disponível para empréstimo</h5>";
         
@@ -138,6 +138,9 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
         <button type="submit">EMPRESTAR</button>
         </a>
       <?php
+    }else{
+        echo "<h5>Livro indisponível para empréstimo, volte dia dd/mm/yyyy</h5>";
+    }
     }
     ?>
     
