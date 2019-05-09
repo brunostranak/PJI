@@ -124,6 +124,8 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
             <?=$livro["resumo"];?></p>
     
         </div>
+        <h1>Feedback</h1>
+        <textarea rows="10" cols="40" maxlength="500"></textarea>
     
         <br>
   <?php
