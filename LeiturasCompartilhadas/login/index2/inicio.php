@@ -85,23 +85,6 @@ if($_SESSION["logado"]=="on"){
                 </div>
 
               </li>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="sermon.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sermons</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown05">
-                  <a class="dropdown-item" href="sermon.html">Daily Sermon</a>
-                  <a class="dropdown-item" href="sermon.html">Music</a>
-                  <a class="dropdown-item" href="sermon.html">Audio</a>
-                  <a class="dropdown-item" href="sermon.html">Video</a>
-                </div>
-
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="events.html">Events</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
