@@ -9,7 +9,15 @@ $sql2="SELECT * FROM livros WHERE idLivro = '$idlivro'";
 $resultado2=mysqli_query($cnx,$sql2);
 $livro=mysqli_fetch_assoc($resultado2);
 
+$sql3= "SELECT idEmprestante from emprestimos WHERE idLivro='$idlivro'";
+$result=mysqli_query($cnx,$sql3);
+$idEmprestante= mysqli_fetch_assoc($result);
+$idEmprestante= $idEmprestante["idEmprestante"];
 
+$sql4= "SELECT dtFim from emprestimos WHERE idEmprestante='$_SESSION[idUser]'";
+$result2=mysqli_query($cnx,$sql4);
+$dtFim= mysqli_fetch_assoc($result2);
+$dtFim= $dtFim["dtFim"];
 
 if($_SESSION["logado"]=="on"){
     
@@ -23,7 +31,7 @@ if($_SESSION["logado"]=="on"){
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="livros.css">
+    
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
 
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -124,14 +132,12 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
             <?=$livro["resumo"];?></p>
     
         </div>
-        <h1>Feedback</h1>
-        <textarea rows="10" cols="40" maxlength="500"></textarea>
-    
-        <br>
+        
   <?php
     if( $livro["idUser"]<>$_SESSION["idUser"]){
-    if($livro["status"]<>"afk"){
-        echo "<h5>Livro disponível para empréstimo</h5>";
+        if($livro["status"]<>"afk"){
+        
+            echo "<h5>Livro disponível para empréstimo</h5>";
         
         
     
@@ -140,16 +146,82 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
         <button type="submit">EMPRESTAR</button>
         </a>
       <?php
-    }else{
-        echo "<h5>Livro indisponível para empréstimo, volte dia dd/mm/yyyy</h5>";
+        }else{
+            
+            if($_SESSION["idUser"]==$idEmprestante){
+                echo "Esse livro está com você! <br>";
+                echo "Seu empréstimo expirará em ".date('d-m-Y', strtotime($dtFim));
+               
+            }else{
+            echo "<h5>Livro indisponível para empréstimo, volte dia dd/mm/yyyy</h5>";
+        }
     }
     }
     ?>
     
 </div>
     
+    <h4>Conte-nos aqui, sua experiência com essa obra:</h4>
+    <form action="feedbacks.php?idlivro=<?=$livro["idLivro"];?>" method="post">
+        <textarea rows="5" cols="40" maxlength="500" name="fb"> </textarea>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+        <br>
     <br>
     
+    <div style="text-align:center" class="container">
+        
+                  
+    <?php
+    
+    
+    
+    
+        $sql6="SELECT u.nomeUser, u.imagem, f.feedback FROM usuarios as u INNER JOIN feedbacks as f ON u.idUser = f.idUser WHERE f.idLivro = $livro[idLivro]";
+                $resuls=mysqli_query($cnx,$sql6);
+            
+   while($resu=mysqli_fetch_assoc($resuls)){
+        $dados[]=$resu;
+   }
+   if(!empty($dados)){
+   echo "<br>";
+   echo "<div id='coments' style='margin-left:25%;'>";
+   foreach($dados as $dado){
+       ?>
+       <div id='borda' style='width:500px;'>
+     <p id='comentario' style='border-style: solid; background-color:#f7f7f7; border-color:#f7f7f7'>
+     
+                
+       <img style='width:60px;height:60px;margin-top:20px;margin-left:-90px' src='../imagens/<?=$dado['imagem'];?>'>
+       <h7 style='font-weight:bold;margin-left:5.5%;margin-top:20%;'><?=$dado["nomeUser"];?></h7>
+       <?="disse: ";?>
+      <br>
+       <span id='fb' style='margin-left:32.2%'><?=$dado["feedback"];?></span>
+       <br>
+     </p>
+     </div>
+      
+        
+   <?php
+   }
+   }
+   
+   ?>
+  </div>
+   
+    
+    
+        
+    
+   
+    
+    
+    
+    
+
+                
+    </div>
     
     
   

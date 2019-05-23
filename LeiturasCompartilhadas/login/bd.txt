@@ -2,8 +2,6 @@ DROP DATABASE PJI;
 CREATE DATABASE PJI;
 USE PJI;
 
-a
-
 CREATE TABLE usuarios(
 idUser INT AUTO_INCREMENT,
 nomeUser VARCHAR(60),
@@ -39,6 +37,20 @@ dtFim DATE,
 
 
 PRIMARY KEY (idEmprestimo),
+FOREIGN KEY (idUser) REFERENCES usuarios (idUser),
+FOREIGN KEY (idLivro) REFERENCES livros (idLivro)
+) engine = innodb;
+
+
+CREATE TABLE feedbacks(
+idFeedback INT AUTO_INCREMENT,
+idUser INT,
+idLivro INT,
+feedback VARCHAR(450),
+
+
+
+PRIMARY KEY (idFeedback),
 FOREIGN KEY (idUser) REFERENCES usuarios (idUser),
 FOREIGN KEY (idLivro) REFERENCES livros (idLivro)
 ) engine = innodb;

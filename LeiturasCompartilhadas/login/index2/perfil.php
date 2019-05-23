@@ -36,7 +36,7 @@ initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500"
 rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="livros.css">
+
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/animate.css">
