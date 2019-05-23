@@ -105,27 +105,6 @@ aria-expanded="false">Perfil</a>
                 </div>
 
               </li>
-
-              <a href="addlivro.php"></a>
-              <li class="nav-item dropdown">
-                  <a href="addlivro.php"></a>
-                <a class="nav-link dropdown-toggle" href="sermon.html"
-id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
-aria-expanded="false">Sermons</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown05">
-                  <a class="dropdown-item" href="sermon.html">Daily Sermon</a>
-                  <a class="dropdown-item" href="sermon.html">Music</a>
-                  <a class="dropdown-item" href="sermon.html">Audio</a>
-                  <a class="dropdown-item" href="sermon.html">Video</a>
-                </div>
-
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="events.html">Events</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
@@ -245,46 +224,6 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
 
     <section class="site-section bg-light">
       <div class="container">
-
-
-
-
-
-          <div class="col-md-8 pl-md-5">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-elit. Ducimus animi explicabo asperiores accusantium laborum
-distinctio quos, placeat eligendi nesciunt aliquid ut corrupti id
-sapiente libero, quod doloremque minima odit debitis minus. Sequi enim
-quibusdam, doloremque iste iure? Excepturi, ad, ratione!</p>
-            <p><img src="images/big_image_1.jpg" alt="Image
-placeholder" class="img-fluid"></p>
-            <p>Deleniti asperiores delectus, nemo consequatur omnis
-dolorum vel voluptatem? Consequuntur doloribus iusto adipisci quam eos
-fugiat, hic architecto. Consequatur ipsa error architecto? Deserunt
-id, consectetur non labore odio accusantium veritatis incidunt?
-Molestias velit deserunt harum, quibusdam est minus, sapiente
-modi.</p>
-            <p>Adipisci tempore soluta, sed aperiam consequatur error
-dolorem, repellendus quos minima rem ex ipsum possimus maiores
-reiciendis quo, accusantium officia omnis! Porro quidem ullam
-architecto, sapiente, a consequatur ex nostrum eos culpa vitae tenetur
-voluptates, nobis temporibus, fuga facilis pariatur.</p>
-            <p>Rerum, molestias ipsa doloremque velit distinctio
-laboriosam quidem ratione minima inventore. Blanditiis quaerat ipsa
-nobis fugit repudiandae, at repellendus itaque odit! Quibusdam ducimus
-exercitationem optio dolore, modi repudiandae beatae enim incidunt,
-saepe atque amet suscipit, aliquam placeat pariatur ipsam facilis.</p>
-            <p>A suscipit facilis minima fugiat ipsum provident
-pariatur, culpa! Quia fuga aperiam, error beatae vel dolorem velit eos
-incidunt ducimus animi nostrum, ipsa impedit praesentium libero
-voluptatem est magni doloribus! Atque illum, aut deleniti adipisci
-natus quas, beatae nihil sit!</p>
-          </div>
-
-      </div>
-    </section>
-
-
 
     <footer class="site-footer">
       <div class="container">
