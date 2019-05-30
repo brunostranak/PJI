@@ -134,9 +134,15 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
         </div>
         
   <?php
+  $sql5= "SELECT nomeUser FROM usuarios WHERE idUser='$livro[idUser]'";
+  $resul=mysqli_query($cnx,$sql5);
+  $resul2=mysqli_fetch_assoc($resul);
+  
     if( $livro["idUser"]<>$_SESSION["idUser"]){
+        echo "Dono: ";
+        echo "<h5>".$resul2["nomeUser"]."</h5>";
         if($livro["status"]<>"afk"){
-        
+            echo "<br>";
             echo "<h5>Livro disponível para empréstimo</h5>";
         
         
@@ -157,10 +163,11 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
         }
     }
     }
+    
     ?>
     
 </div>
-    
+    <br>
     <h4>Conte-nos aqui, sua experiência com essa obra:</h4>
     <form action="feedbacks.php?idlivro=<?=$livro["idLivro"];?>" method="post">
         <textarea rows="5" cols="40" maxlength="500" name="fb"> </textarea>

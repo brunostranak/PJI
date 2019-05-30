@@ -100,7 +100,6 @@ if($_SESSION["logado"]=="on"){
     </header>
     <!-- END header -->
 
-    <section class="site-hero overlay" style="background-image: url(images/books.jpg);">
       <div class="container">
         <div class="row align-items-center justify-content-center site-hero-inner">
           <div class="col-md-8 text-center">
@@ -108,7 +107,7 @@ if($_SESSION["logado"]=="on"){
             <div class="mb-5 element-animate">
               <div class="block-17">
                 <h1 class="heading mb-4">Leituras Compartilhadas.</h1>
-                <p><a href="sobrenos.php" class="btn btn-primary-white py-3 px-5">Sobre nós</a>  </p>
+                
             </div>
             
           </div>
@@ -125,7 +124,7 @@ if($_SESSION["logado"]=="on"){
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2 class="heading">Obras disponíveis para empréstimo</h2>
+              <h2 class="heading">Obras cadastradas</h2>
             </div>
           </div>
         </div>
@@ -173,28 +172,19 @@ if($_SESSION["logado"]=="on"){
 
       <?php
 
-$sql3="SELECT * FROM livros WHERE status='on';";
 
-$resultado3=mysqli_query($cnx,$sql3);
-while($linha=mysqli_fetch_assoc($resultado3)){
-    
-    
-    
-    $dados[]=$linha;
 
-}
-
-        if(!empty($dados)){
-            foreach ($dados as $dado){
+        if(!empty($livros)){
+            foreach ($livros as $livro){
 
 
 ?>
 
 
                  
-        <a href="sobrelivro.php?id=<?=$dado["idLivro"];?>"><img class="image"
+        <a href="sobrelivro.php?id=<?=$livro["idLivro"];?>"><img class="image"
 style="width:250px;height:350px;padding:30px;"
-src="../imagens/<?=$dado["imagem"];?>" alt="Image placeholder" ></a>
+src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
 
 
    <?php
