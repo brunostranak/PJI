@@ -49,6 +49,7 @@ rel="stylesheet">
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
+    
   </head>
   <body>
 
@@ -127,11 +128,27 @@ site-hero-inner">
                 <form class="mb-5 element-animate" style="margin-top:
 -70%" action="../atualizarinfo.php" method="POST"
 enctype="multipart/form-data">
-                    <img class="mb-5 element-animate"
-style="border-radius: 50px; " width="150px" height="200px"
-src="../imagens/<?=$registro["imagem"];?>" alt="Foto de Perfil">
+                   
 
+<?php 
+if (!empty($registro["imagem"])){
+    
+?>
+
+ <img class="mb-5 element-animate" src="../imagens/<?=$registro["imagem"];?>" alt="Foto de Perfil" style="border-radius: 0px; " width="150px" height="200px">
+<?php
+}else{
+   
+?>
+ <img class="mb-5 element-animate" src="../imagens/unknown.png" alt="Foto de Perfil" style="border-radius: 0px; " width="150px" height="200px">
+<?php
+}
+?>
+
+
+                    
                     <br>
+                    
                     <input type="file" name="imagem">
 
                     <br>
@@ -169,6 +186,7 @@ style="margin-left:55%">Email:<?=$registro["email"]?>
     <!-- END section -->
     <div class="container">
 
+        <h1>Submeta alguma obra</h1>
         <form action="addlivro.php" method="post" id="livroform"
 enctype="multipart/form-data">
 
