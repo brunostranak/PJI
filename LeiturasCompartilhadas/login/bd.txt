@@ -56,5 +56,17 @@ FOREIGN KEY (idLivro) REFERENCES livros (idLivro)
 ) engine = innodb;
 
 
+CREATE TABLE notific(
+idNotific INT AUTO_INCREMENT,
+idUser INT,
+idEmprestimo INT,
+texto VARCHAR(450),
+
+PRIMARY KEY (idNotific),
+FOREIGN KEY (idUser) REFERENCES usuarios (idUser),
+FOREIGN KEY (idEmprestimo) REFERENCES emprestimos (idEmprestimo)
+) engine = innodb;
+
+
 
 
