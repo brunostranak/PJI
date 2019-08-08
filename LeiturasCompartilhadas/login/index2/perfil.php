@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+ob_start();
 require("../conexaobd.php");
 $cnx= conexao();
 $sql="SELECT * from usuarios where idUser='$_SESSION[idUser]'";
@@ -226,18 +226,44 @@ cols="50"></textarea>
             
 
         <img onclick="javascript:excluir()"style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/x.png">   
-           <script>
-               var idlivro = <?=$livro[idLivro];?>
-               function excluir(){
-if (window.confirm('Tem certeza que deseja excluir este livro?')){
+          
+        <?php
+        if(isset($_SESSION["status"])){
+        if($_SESSION["status"]<>"afk"){
+        ?>
+       <script> 
+           
+           function excluir(){ 
+               
+               <?php
+          echo "var id='$livro[idLivro]'";
+          
+         
+          ?>
+           
+              if (window.confirm('Tem certeza que deseja excluir este livro?')){
     
-    window.location.href = "excluirlivro.php?id=" + idlivro
-    
+                window.location.href = 'excluirlivro.php?id='+id;
+            }
+            }
    
-   }    
-    
-               }
-</script>
+
+         </script>
+       <?php
+        }else{
+            echo "<script>alert('Voce não pode excluir um livro em empréstimo!')</script>";
+        }
+        }else{
+            
+            echo"<script>";
+            echo"print('oi')";
+            echo "window.location.href = 'excluirlivro.php?id='".$livro['idLivro'];
+            echo"</script>";
+            
+        }
+           
+       
+       ?>
             
            
             <a href="sobrelivro.php?id=<?=$livro['idLivro'];?>"><img class="image"
