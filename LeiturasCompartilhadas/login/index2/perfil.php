@@ -223,8 +223,9 @@ cols="50"></textarea>
 
 ?>
 
-
-
+           <a href="excluirlivro.php?id=<?=$livro['idLivro'];?>">
+            <img style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/x.png">
+           </a>
             <a href="sobrelivro.php?id=<?=$livro['idLivro'];?>"><img class="image"
 style="width:250px;height:350px;padding:30px;"
 src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
