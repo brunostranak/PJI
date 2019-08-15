@@ -227,10 +227,9 @@ cols="50"></textarea>
 
         <img onclick="javascript:excluir()"style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/x.png">   
           
-        <?php
-        if(isset($_SESSION["status"])){
-        if($_SESSION["status"]<>"afk"){
-        ?>
+        
+        
+        
        <script> 
            
            function excluir(){ 
@@ -250,10 +249,10 @@ cols="50"></textarea>
 
          </script>
        <?php
-        }else{
-            echo "<script>alert('Voce não pode excluir um livro em empréstimo!')</script>";
-        }
-        }else{
+        
+            //echo "<script>alert('Voce não pode excluir um livro em empréstimo!')</script>";
+        
+        
             
             echo"<script>";
             echo"print('oi')";
@@ -273,7 +272,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
 
    <?php
             }
-        }
+        
 
    ?>
 
