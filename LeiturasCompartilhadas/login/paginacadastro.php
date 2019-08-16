@@ -14,6 +14,9 @@ session_start();
 <html lang="en" >
 
 <head>
+    
+    
+
   <meta charset="UTF-8">
   <title>Flat Login Form</title>
   
@@ -51,7 +54,20 @@ session_start();
 
 
     <input required type="password" placeholder="Senha" name="senha"/>
-   
+    <script>
+    function Mascara(objeto){
+   if(objeto.value.length == 0)
+     objeto.value = '(' + objeto.value;
+
+   if(objeto.value.length == 3)
+      objeto.value = objeto.value + ') ';
+
+ if(objeto.value.length == 10)
+     objeto.value = objeto.value + '-';
+}
+</script>
+    <input onkeypress="Mascara(this);" required type="text"  placeholder="Celular" name="telefone" maxlength="15"/>
+    
     
     <button type="submit">Cadastrar</button>
     <p class="message" style="color:red"><?php

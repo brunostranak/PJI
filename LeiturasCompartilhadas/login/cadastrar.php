@@ -8,11 +8,12 @@ $cnx= conexao();
 $nome= strip_tags($_POST["nome"]);
 $email=strip_tags($_POST["email"]);
 $senha=strip_tags($_POST["senha"]);
+$telefone=strip_tags($_POST["telefone"]);
 
 
 
-$sql = "INSERT INTO usuarios (nomeUser,email,senha) 
- VALUES ('$nome','$email','$senha')";
+$sql = "INSERT INTO usuarios (nomeUser,email,senha,telefone) 
+ VALUES ('$nome','$email','$senha','$telefone')";
 
 $sql2= "SELECT * FROM usuarios WHERE email = '$email'";
 $resultadoverific=mysqli_query($cnx,$sql2);

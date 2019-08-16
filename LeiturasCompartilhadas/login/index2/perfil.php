@@ -1,30 +1,17 @@
 <?php
-
 session_start();
 ob_start();
 require("../conexaobd.php");
 $cnx= conexao();
 $sql="SELECT * from usuarios where idUser='$_SESSION[idUser]'";
-
 $resultado=mysqli_query($cnx,$sql);
 $registro=mysqli_fetch_assoc($resultado);
-
-
-
-
 $sql2="SELECT * FROM livros where idUser='$_SESSION[idUser]'";
-
 $resultado2=mysqli_query($cnx,$sql2);
 while($livru=mysqli_fetch_assoc($resultado2)){
-
-
-
     $livros[]=$livru;
-
 }
-
 if($_SESSION["logado"]=="on"){
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -152,7 +139,8 @@ if (!empty($registro["imagem"])){
                     <input type="file" name="imagem">
 
                     <br>
-                    <button type='submit'>Enviar</button>
+                    <br>
+                    <button type='submit' class="btn btn-primary">Enviar</button>
                 </form>
                 </div>
 
@@ -164,13 +152,15 @@ if (!empty($registro["imagem"])){
                 <h1 class="heading mb-4">Outreach Ministry</h1>
                 <h1 style="margin-left:55%" >Contato</h1>
                 <div class="lead"
-style="margin-left:55%">Email:<?=$registro["email"]?>
+style="margin-left:55%">Email: <?=$registro["email"]?>
                     <br>
-                    Telefone:<?php if(empty($registro["telefone"])){
+                    Telefone: <?php if(empty($registro["telefone"])){
                         ?>
 
 
                     <?php
+                    }else{
+                        echo $registro['telefone'];
                     }
                     ?>
 
@@ -206,75 +196,64 @@ type="text" required name="editora">
 <textarea form="livroform" required name="resumo" rows="10"
 cols="50"></textarea>
             <br>
+            <span style="color:black">Imagem da capa (recomendamos que faça o download da internet e o upload aqui em baixo) </span><br>
             <input type="file" name="imagem">
             <br>
-            <button type="submit">Enviar</button>
+            <br>
+            <button type="submit" class="btn btn-primary">Cadastrar obra</button>
                 <br>
         </form>
-        <h1 style="text-align:center">Meus livros</h1>
+        <h1 style="text-align:center">MEU ACERVO</h1>
         <div id="livros" style="text-align:center">
         <?php
-
-
-
         if(!empty($livros)){
             foreach ($livros as $livro){
+                if(isset($_SESSION["error"])){
+                    echo "<script>window.alert('Este livro não pode ser deletado pois está em empréstimo ou possui registros de feedback. Por favor, contate um administrador')</script>";
+                    unset ($_SESSION["error"]);
+                }
                 
-
+                
+                
 ?>
             
             
 
-        <img onclick="javascript:excluir()"style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/x.png">   
+        <span>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+        <img onclick="javascript:excluir('<?php echo $livro['idLivro'];?>','<?php echo $livro['nomeLivro'];?>')"style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/x.png">   
           
         
         
         
        <script> 
            
-           function excluir(){ 
+           function excluir(id,nome){ 
                
-               <?php
-          echo "var id='$livro[idLivro]'";
-          
-         
-          ?>
+           idlivro=id;
+           nomelivro=nome;
            
-              if (window.confirm('Tem certeza que deseja excluir este livro?')){
+          
+           
+              if (window.confirm('Tem certeza que deseja excluir "'+ nomelivro +'" do acervo do clube?')){
     
-                window.location.href = 'excluirlivro.php?id='+id;
+                window.location.href = 'excluirlivro.php?id='+idlivro;
             }
+            
             }
    
-
          </script>
-       <?php
-        
-            //echo "<script>alert('Voce não pode excluir um livro em empréstimo!')</script>";
-        
-        
-            
-            echo"<script>";
-            echo"print('oi')";
-            echo "window.location.href = 'excluirlivro.php?id='".$livro['idLivro'];
-            echo"</script>";
-            
-        }
-           
-       
-       ?>
-            
-           
-            <a href="sobrelivro.php?id=<?=$livro['idLivro'];?>"><img class="image"
+         <a href="sobrelivro.php?id=<?=$livro['idLivro'];?>"><img class="image"
 style="width:250px;height:350px;padding:30px;"
 src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
-
-
-   <?php
-            }
+       <?php
         
-
-   ?>
+            
+            
+        }
+        }
+       
+       ?>
+    
 
         </div>
 
@@ -432,13 +411,8 @@ stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
 
 <?php
-
-
-
 }else{
     
     header("location:../index.php");
 }
-
-
 ?>

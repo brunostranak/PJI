@@ -19,6 +19,11 @@ $result2=mysqli_query($cnx,$sql4);
 $dtFim= mysqli_fetch_assoc($result2);
 $dtFim= $dtFim["dtFim"];
 
+$sql5= "SELECT dtFim from emprestimos WHERE idLivro='$idlivro'";
+$result3=mysqli_query($cnx,$sql5);
+$dataFim= mysqli_fetch_assoc($result3);
+
+
 if($_SESSION["logado"]=="on"){
     
     
@@ -128,38 +133,44 @@ if($_SESSION["logado"]=="on"){
 style="width:250px;height:350px;padding:30px;margin-top:10%;float:left;margin-left:"
 src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >    
                     
-            
-            <?=$livro["resumo"];?></p>
+            <?php echo "Resumo:";?>
+            <br>
+            <?php echo "<h5>".$livro['resumo']."</h5>";?>
     
         </div>
         
   <?php
-  $sql5= "SELECT nomeUser FROM usuarios WHERE idUser='$livro[idUser]'";
+  $sql5= "SELECT * FROM usuarios WHERE idUser='$livro[idUser]'";
   $resul=mysqli_query($cnx,$sql5);
   $resul2=mysqli_fetch_assoc($resul);
   
     if( $livro["idUser"]<>$_SESSION["idUser"]){
         echo "Dono: ";
         echo "<h5>".$resul2["nomeUser"]."</h5>";
+        echo "Contato: ";
+        echo "<h5>".$resul2["email"]." - ".$resul2["telefone"]."</h5>";
         if($livro["status"]<>"afk"){
-            echo "<br>";
+            echo "Status:";
             echo "<h5>Livro disponível para empréstimo</h5>";
         
         
     
     ?>  
         <a href="emprestar.php?id=<?=$livro['idLivro'];?>" 
-        <button type="submit">EMPRESTAR</button>
+        <button type="submit" class="btn btn-primary">EMPRESTAR</button>
         </a>
       <?php
         }else{
             
             if($_SESSION["idUser"]==$idEmprestante){
-                echo "Esse livro está com você! <br>";
-                echo "Seu empréstimo expirará em ".date('d-m-Y', strtotime($dtFim));
+                echo "Status:";
+                echo "<h5>Esse livro está com você, seu empréstimo expirará em ".date('d-m-Y', strtotime($dtFim))."</h5>";
+                
                
             }else{
-            echo "<h5>Livro indisponível para empréstimo, volte dia dd/mm/yyyy</h5>";
+                
+                echo "Status:";
+            echo "<h5>Livro indisponível para empréstimo, volte no dia ".date('d-m-Y', strtotime($dataFim['dtFim']))."</h5>";
         }
     }
     }
@@ -170,9 +181,12 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
     <br>
     <h4>Conte-nos aqui, sua experiência com essa obra:</h4>
     <form action="feedbacks.php?idlivro=<?=$livro["idLivro"];?>" method="post">
-        <textarea rows="5" cols="40" maxlength="500" name="fb"> </textarea>
+        <textarea rows="2" cols="40" maxlength="500" name="fb"> </textarea>
         <br>
-        <button type="submit">Enviar</button>
+        
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        
+        
     </form>
         <br>
     <br>
