@@ -21,7 +21,7 @@ editora VARCHAR(60),
 status VARCHAR(60),
 resumo VARCHAR(300),
 imagem VARCHAR(20),
-
+qtdFeed INT(2),
 PRIMARY KEY (idLivro),
 FOREIGN KEY (idUser) REFERENCES usuarios (idUser)
 ) engine = innodb;
