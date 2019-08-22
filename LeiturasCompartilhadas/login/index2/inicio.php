@@ -89,6 +89,9 @@ if($_SESSION["logado"]=="on"){
                 <a class="nav-link" href="obras.php">Obras</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="submeter.php">Submeter</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
             </ul>

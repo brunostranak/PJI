@@ -19,7 +19,13 @@ $sql="INSERT INTO livros (idUser,nomelivro,autor,editora,status,resumo,imagem)
     VALUES('$idUser','$nome','$autor','$editora','on','$resumo','$imagem[name]');";
 
 $resultado=mysqli_query($cnx,$sql);
-echo mysqli_error($cnx);
 
-header("location:perfil.php");
+if (mysqli_error($cnx)){
+    header("location:submeter.php");
+    $_SESSION["error"]=1;
+}else{
+    header("location:submeter.php");
+    $_SESSION["error"]=0;
+}
+
 

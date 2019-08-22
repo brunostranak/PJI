@@ -1,6 +1,6 @@
 <?php
 session_start();
-ob_start();
+//ob_start();
 require("../conexaobd.php");
 $cnx= conexao();
 $sql="SELECT * from usuarios where idUser='$_SESSION[idUser]'";
@@ -64,41 +64,37 @@ rel="stylesheet">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand absolute" href="perfil.php">Meu Perfil</a>
-          <button class="navbar-toggler" type="button"
-data-toggle="collapse" data-target="#navbarsExample05"
-aria-controls="navbarsExample05" aria-expanded="false"
-aria-label="Toggle navigation">
+          <a class="navbar-brand absolute" href="index.html">Aventure-se!<span class="fa fa-heart text-primary"></span>  </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-
-          <div class="collapse navbar-collapse navbar-light"
-id="navbarsExample05">
+          <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" href="inicio.php">Home</a>
-              </li>
-
+              
+                <a class="nav-link" href="inicio.php">Home</a>
+              
               <li class="nav-item dropdown active">
-
-                <a class="nav-link dropdown-toggle" href="perfil.php"
-id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-aria-expanded="false">Perfil</a>
+                <a class="nav-link dropdown-toggle" href="ministry.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="perfil.php">Meu Perfil</a>
-
+                  <a class="dropdown-item" href="perfil.php">Meu perfil</a>
                   <a class="dropdown-item" href="../deslogar.php">Sair</a>
-
+                  
                 </div>
-
+                </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="obras.php">Obras</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="submeter.php">Submeter</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
             </ul>
-
-
+            
+            
           </div>
         </div>
       </nav>
@@ -174,35 +170,9 @@ style="margin-left:55%">Email: <?=$registro["email"]?>
       </div>
     </section>
     <!-- END section -->
-    <div class="container">
+    <div class="container col-10" >
 
-        <h1>Submeta alguma obra</h1>
-        <form action="addlivro.php" method="post" id="livroform"
-enctype="multipart/form-data">
-
-            <span style="color:black">Nome da obra</span> <input
-required type="text" name="nome">
-            <br>
-            <br>
-            <span style="color:black">Autor </span> <input type="text"
-required name="autor">
-            <br>
-            <br>
-            <span style="color:black">Editora </span> <input
-type="text" required name="editora">
-            <br>
-            <br>
-            <span style="color:black">Breve resumo </span><br>
-<textarea form="livroform" required name="resumo" rows="10"
-cols="50"></textarea>
-            <br>
-            <span style="color:black">Imagem da capa (recomendamos que faça o download da internet e o upload aqui em baixo) </span><br>
-            <input type="file" name="imagem">
-            <br>
-            <br>
-            <button type="submit" class="btn btn-primary">Cadastrar obra</button>
-                <br>
-        </form>
+        
         <h1 style="text-align:center">MEU ACERVO</h1>
         <div id="livros" style="text-align:center">
         <?php
@@ -259,7 +229,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
 
 
 
-    <section class="site-section bg-light">
+    
       <div class="container">
 
     <footer class="site-footer">

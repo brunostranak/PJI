@@ -83,9 +83,9 @@ if($_SESSION["logado"]=="on"){
 
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
+              
                 <a class="nav-link" href="inicio.php">Home</a>
-              </li>
+              
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="ministry.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -93,24 +93,13 @@ if($_SESSION["logado"]=="on"){
                   <a class="dropdown-item" href="../deslogar.php">Sair</a>
                   
                 </div>
-
-              </li>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="sermon.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sermons</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown05">
-                  <a class="dropdown-item" href="sermon.html">Daily Sermon</a>
-                  <a class="dropdown-item" href="sermon.html">Music</a>
-                  <a class="dropdown-item" href="sermon.html">Audio</a>
-                  <a class="dropdown-item" href="sermon.html">Video</a>
-                </div>
-
+                </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="obras.php">Obras</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="events.html">Events</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="submeter.php">Submeter</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
