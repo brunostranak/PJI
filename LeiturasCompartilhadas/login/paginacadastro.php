@@ -48,7 +48,7 @@ session_start();
   
   <form action="cadastrar.php" method="post">
       
-    <input required type="text" placeholder="Nome" name="nome">
+    <input required type="text" placeholder="Nome" name="nome"/>
     <input required type="email" placeholder="Email" name="email"/>
    
 
