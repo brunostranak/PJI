@@ -127,93 +127,29 @@ if($_SESSION["logado"]=="on"){
    
 <div class="container">
 <?php
-foreach($users as $user){
+
+if(!empty($users)){
+    foreach($users as $user){
     
     echo"<div>";
     echo "<h2>$user[nomeUser]</h2>";
     echo"<img style='width:150px;height:150px' src='../imagens/$user[imagem]'>";
     echo "</div>";
-}
+    }
 
 }else{
-    header("location:../index.php");
+    echo"<div>";
+    echo "<h2>Não há resultados para essa busca</h2>";
+    echo "</div>";
 }
+
 
 ?>
 </div>
     
      <footer class="site-footer">
       <div class="container">
-        <div class="row mb-5">
-        <!--   <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-            <p>Perferendis eum illum voluptatibus dolore tempora consequatur minus asperiores temporibus.</p>
-          </div> -->
-          <div class="col-md-6 col-lg-6 mb-5 mb-lg-0">
-            <h3 class="heading">Church Quick Links</h3>
-            <div class="row">
-              <div class="col-md-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">Men's Ministry</a></li>
-                  <li><a href="#">Women's Ministry</a></li>
-                  <li><a href="#">Children's Ministry</a></li>
-                  <li><a href="#">Youth Ministry</a></li>
-                </ul>
-              </div>
-              <div class="col-md-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">Senior Adult Ministry</a></li>
-                  <li><a href="#">Marriage Ministries</a></li>
-                  <li><a href="#">Missions & Outreach</a></li>
-                  <li><a href="#">Prayer Ministry</a></li>
-                </ul>
-              </div>
-              
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-            <h3 class="heading">Events</h3>
-            <div class="block-21 d-flex mb-4">
-              <div class="text">
-                <h3 class="heading mb-0"><a href="#">Consectetur Adipisicing Elit</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>  
-            <div class="block-21 d-flex mb-4">
-              <div class="text">
-                <h3 class="heading mb-0"><a href="#">Dolore Tempora Consequatur</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>  
-            <div class="block-21 d-flex mb-4">
-              <div class="text">
-                <h3 class="heading mb-0"><a href="#">Perferendis eum illum</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>  
-          </div>
-          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-            <h3 class="heading">Contact Information</h3>
-            <div class="block-23">
-              <ul>
-                <li><span class="icon ion-android-pin"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon ion-ios-telephone"></span><span class="text">+2 392 3929 210</span></a></li>
-                <li><a href="#"><span class="icon ion-android-mail"></span><span class="text">info@yourdomain.com</span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        
         <div class="row pt-5">
           <div class="col-md-12 text-center copyright">
             
@@ -233,7 +169,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </footer>
     <!-- END footer -->
 
-    </div>
+    
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
@@ -250,5 +186,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.magnific-popup.min.js"></script>
 
     <script src="js/main.js"></script>
+    
   </body>
+</div>
+  
 </html>
+
+<br>
+<br>
+
+
+
+<?php
+
+
+}else{
+    
+    header("location:../index.php");
+}
+?>
