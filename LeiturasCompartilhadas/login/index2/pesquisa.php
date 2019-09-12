@@ -134,6 +134,7 @@ if(!empty($users)){
     echo"<div>";
     echo "<h2>$user[nomeUser]</h2>";
     echo"<img style='width:150px;height:150px' src='../imagens/$user[imagem]'>";
+    echo "<br>".$user['email']."<br>".$user['telefone'];
     echo "</div>";
     }
 
@@ -166,7 +167,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
           </div>
         </div>
       </div>
-    </footer>
     <!-- END footer -->
 
     
@@ -192,8 +192,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   
 </html>
 
-<br>
-<br>
 
 
 

@@ -26,7 +26,7 @@ session_start();
   
 <div class="container">
   <div class="info">
-    <h1>Crie uma conta ou logue-se!</h1>
+    <h1>Leituras Compartilhadas</h1>
   </div>
 </div>
 <div class="form">

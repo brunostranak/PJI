@@ -147,21 +147,36 @@ if (!empty($registro["imagem"])){
               <div class="block-17">
 
                 <h1 class="heading mb-4">Outreach Ministry</h1>
-                <h1 style="margin-left:55%" >Contato</h1>
-                <div class="lead"
-style="margin-left:55%">Email: <?=$registro["email"]?>
+                <h1 style="margin-left:86%;">Contato</h1>
+                
+                <div class="container">
+                <form style="width:250px;margin-left:80%;"class="form-control" action="atualizarcontato.php" method="post">
+                
+                     <input class="form-control" name="email"
+                        value="<?php 
+                       echo @$registro['email']; ?>">
                     <br>
-                    Telefone: <?php if(empty($registro["telefone"])){
-                        ?>
+                    <script>
+    function Mascara(objeto){
+   if(objeto.value.length == 0)
+     objeto.value = '(' + objeto.value;
+
+   if(objeto.value.length == 3)
+      objeto.value = objeto.value + ') ';
+
+ if(objeto.value.length == 10)
+     objeto.value = objeto.value + '-';
+}
+</script>
+                    <input maxlength="15" onkeypress="Mascara(this);" class="form-control" name="telefone"
+                       value="<?php 
+                       echo @$registro['telefone']; ?>">
+                    <br>
+                   <button type='submit' class="btn btn-primary">Atualizar</button>
 
 
-                    <?php
-                    }else{
-                        echo $registro['telefone'];
-                    }
-                    ?>
-
-
+                    
+                    </form>
                     </div>
               </div>
             </div>
