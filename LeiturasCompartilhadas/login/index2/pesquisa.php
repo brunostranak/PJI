@@ -124,18 +124,29 @@ if($_SESSION["logado"]=="on"){
 
     
   
-   
-<div class="container">
+<!--   <div class="container">      
+<div class="row">
+  <div class="col-12 col-md-8">.col-12 .col-md-8</div>
+  <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+</div>
+</div>-->
+<div style="text-align:center" class="container">
 <?php
 
-if(!empty($users)){
+if(!empty($users)){ 
+    echo"<div class='row'>";
     foreach($users as $user){
-    
-    echo"<div>";
+   
+    echo"<div class='col-12 col-md-4 col-sm-8'>";
     echo "<h2>$user[nomeUser]</h2>";
     echo"<img style='width:150px;height:150px' src='../imagens/$user[imagem]'>";
     echo "<br>".$user['email']."<br>".$user['telefone'];
+    echo "<br>";
+    echo $user['bio'];
+    
     echo "</div>";
+    
+    
     }
 
 }else{
@@ -143,7 +154,7 @@ if(!empty($users)){
     echo "<h2>Não há resultados para essa busca</h2>";
     echo "</div>";
 }
-
+echo "</div>";
 
 ?>
 </div>
@@ -189,7 +200,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     
   </body>
 </div>
-  
+
 </html>
 
 

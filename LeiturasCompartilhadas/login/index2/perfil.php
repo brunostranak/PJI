@@ -8,6 +8,7 @@ $resultado=mysqli_query($cnx,$sql);
 $registro=mysqli_fetch_assoc($resultado);
 $sql2="SELECT * FROM livros where idUser='$_SESSION[idUser]'";
 $resultado2=mysqli_query($cnx,$sql2);
+
 while($livru=mysqli_fetch_assoc($resultado2)){
     $livros[]=$livru;
 }
@@ -142,8 +143,11 @@ if (!empty($registro["imagem"])){
                     </div>
                 
                 <div class="col-md">
-            <form style="margin-top:30%;" action="" method="">
-                <textarea cols="30" name="bio" placeholder="Escreva um pouco sobre seus gostos literários"></textarea>
+                    <form style="margin-top:30%;" action="atualizarbio.php" method="post">
+                <textarea class="form-control" maxlength="450" cols="30" name="bio" placeholder="Escreva um pouco sobre seus gostos literários"><?php 
+                echo @$registro['bio']; ?></textarea>
+                        <br>
+                <button type='submit' class="btn btn-primary">Enviar</button>
             </form>
                 </div>
           
@@ -175,7 +179,7 @@ if (!empty($registro["imagem"])){
                        value="<?php 
                        echo @$registro['telefone']; ?>">
                     <br>
-                   <button style="margin-left:28%;margin-bottom:10%;" type='submit' class="btn btn-primary">Atualizar</button>
+                   <button style="margin-left:32%;margin-bottom:10%;" type='submit' class="btn btn-primary">Enviar</button>
 
 
                     

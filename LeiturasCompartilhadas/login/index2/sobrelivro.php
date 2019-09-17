@@ -119,7 +119,7 @@ if($_SESSION["logado"]=="on"){
         <p  style="margin-left:60%;float:right" id="sinopse">
         <div class="container">
             <img class="image"
-style="width:250px;height:350px;padding:30px;margin-top:10%;float:left;margin-left:"
+style="width:250px;height:350px;padding:30px;margin-top:-3%;float:left;margin-left:"
 src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >    
                     
             <?php echo "Resumo:";?>
@@ -186,11 +186,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
         
     </form>
         <br>
-    <br>
-    <br>
     
-    <br>
-    <br>
     
     
     <div style="text-align:center" class="container">
@@ -208,7 +204,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
         $dados[]=$resu;
    }
    if(!empty($dados)){
-   echo "<br>";
+   
    echo "<div id='coments'>";
    foreach($dados as $dado){
        ?>
@@ -216,11 +212,11 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
      <p id='comentario' style='border-style: solid; background-color:#f7f7f7; border-color:#f7f7f7'>
      
                 
-       <img style='width:60px;height:60px;margin-top:20px;margin-left:-90px' src='../imagens/<?=$dado['imagem'];?>'>
+       <img style='width:60px;height:60px;margin-top:20px;margin-left:-50%' src='../imagens/<?=$dado['imagem'];?>'>
        <h7 style='font-weight:bold;margin-left:5.5%;margin-top:20%;'><?=$dado["nomeUser"];?></h7>
        <?="disse: ";?>
       <br>
-       <span style="text-align:center" id='fb' style='margin-left:32.2%'><?=$dado["feedback"];?></span>
+       <span style="text-align:center" id='fb' style='margin-left:22.2%'><?=$dado["feedback"];?></span>
        <br>
      </p>
      </div>

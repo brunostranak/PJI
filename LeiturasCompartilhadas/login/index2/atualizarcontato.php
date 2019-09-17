@@ -5,8 +5,8 @@ require("../conexaobd.php");
 $cnx= conexao();
 
 $id=$_SESSION["idUser"];
-$email=$_POST["email"];
-$telefone=$_POST["telefone"];
+$email=strip_tags($_POST["email"]);
+$telefone=strip_tags($_POST["telefone"]);
 
 $sql="UPDATE usuarios SET email='$email', telefone='$telefone' WHERE idUser='$id'";
 
