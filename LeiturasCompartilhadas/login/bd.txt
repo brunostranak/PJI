@@ -9,6 +9,7 @@ email VARCHAR(60),
 senha VARCHAR(20),
 imagem VARCHAR(20),
 telefone VARCHAR(20),
+bio VARCHAR(450),
 PRIMARY KEY(idUser)
 ) engine = innodb;
 
