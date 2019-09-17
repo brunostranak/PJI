@@ -102,18 +102,18 @@ rel="stylesheet">
 
     </header>
     <!-- END header -->
+    <br>
+    <div class="container">
+<div class="row">
 
+      
 
-      <div class="container">
-        <div class="row align-items-center justify-content-center
-site-hero-inner">
-
-            <div style="margin-top:25%" class="block-13">
-                <form class="mb-5 element-animate" style="margin-top:
--70%" action="../atualizarinfo.php" method="POST"
+            <div style="" class="col-md">
+                <form style="" action="../atualizarinfo.php" method="POST"
 enctype="multipart/form-data">
+                
+             
                    
-
 <?php 
 if (!empty($registro["imagem"])){
     
@@ -138,19 +138,22 @@ if (!empty($registro["imagem"])){
                     <br>
                     <br>
                     <button type='submit' class="btn btn-primary">Enviar</button>
-                </form>
+                    </form>
+                    </div>
+                
+                <div class="col-md">
+            <form style="margin-top:30%;" action="" method="">
+                <textarea cols="30" name="bio" placeholder="Escreva um pouco sobre seus gostos literários"></textarea>
+            </form>
                 </div>
+          
+              <div class="col-md">
 
-          <div class="col-md-8 text-center">
-
-            <div class="mb-5 element-animate">
-              <div class="block-17">
-
-                <h1 class="heading mb-4">Outreach Ministry</h1>
-                <h1 style="margin-left:86%;">Contato</h1>
+                
+                <h1 style="margin-left:20%;">Contato</h1>
                 
                 <div class="container">
-                <form style="width:250px;margin-left:80%;"class="form-control" action="atualizarcontato.php" method="post">
+                <form style="width:250px;"class="form-control" action="atualizarcontato.php" method="post">
                 
                      <input class="form-control" name="email"
                         value="<?php 
@@ -172,7 +175,7 @@ if (!empty($registro["imagem"])){
                        value="<?php 
                        echo @$registro['telefone']; ?>">
                     <br>
-                   <button type='submit' class="btn btn-primary">Atualizar</button>
+                   <button style="margin-left:28%;margin-bottom:10%;" type='submit' class="btn btn-primary">Atualizar</button>
 
 
                     
@@ -182,17 +185,28 @@ if (!empty($registro["imagem"])){
             </div>
 
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-    <div class="container col-10" >
-
         
+
+    
+      <br>
+      
+    <br>
+    
+    <!-- END section -->
+    
+    
+
+        <br>
         <h1 style="text-align:center">MEU ACERVO</h1>
-        <div id="livros" style="text-align:center">
+        <br>
+        
+        <div class="container">
+        
+        
         <?php
         if(!empty($livros)){
+            echo "<div class='row'>";
+            echo "<div class='col-md-12'>";
             foreach ($livros as $livro){
                 if(isset($_SESSION["error"])){
                     echo "<script>window.alert('Este livro não pode ser deletado pois está em empréstimo ou possui registros de feedback. Por favor, contate um administrador')</script>";
@@ -205,7 +219,7 @@ if (!empty($registro["imagem"])){
             
             
 
-        <span>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+       
         <img onclick="javascript:excluir('<?php echo $livro['idLivro'];?>','<?php echo $livro['nomeLivro'];?>')"style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/x.png">   
           
         
@@ -236,6 +250,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
             
             
         }
+        echo "</div>";
         }
        
        ?>
@@ -243,7 +258,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
 
         </div>
     </div>
-
+        </div>
 
 
     
