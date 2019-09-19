@@ -8,7 +8,10 @@ $resultado=mysqli_query($cnx,$sql);
 $registro=mysqli_fetch_assoc($resultado);
 $sql2="SELECT * FROM livros where idUser='$_SESSION[idUser]'";
 $resultado2=mysqli_query($cnx,$sql2);
-
+$sql3="SELECT * FROM notific where idUser='$_SESSION[idUser]'";
+$resultado3=mysqli_query($cnx,$sql3);
+$notificacoes=mysqli_fetch_assoc($resultado3);
+print_r($notificacoes);
 while($livru=mysqli_fetch_assoc($resultado2)){
     $livros[]=$livru;
 }
@@ -138,7 +141,7 @@ if (!empty($registro["imagem"])){
 
                     <br>
                     <br>
-                    <button type='submit' class="btn btn-primary">Enviar</button>
+                    <button type='submit' class="btn btn-primary">Salvar</button>
                     </form>
                     </div>
                 
@@ -147,7 +150,7 @@ if (!empty($registro["imagem"])){
                 <textarea class="form-control" maxlength="450" cols="30" name="bio" placeholder="Escreva um pouco sobre seus gostos literários"><?php 
                 echo @$registro['bio']; ?></textarea>
                         <br>
-                <button type='submit' class="btn btn-primary">Enviar</button>
+                <button type='submit' class="btn btn-primary">Salvar</button>
             </form>
                 </div>
           
@@ -179,7 +182,7 @@ if (!empty($registro["imagem"])){
                        value="<?php 
                        echo @$registro['telefone']; ?>">
                     <br>
-                   <button style="margin-left:32%;margin-bottom:10%;" type='submit' class="btn btn-primary">Enviar</button>
+                   <button style="margin-left:32%;margin-bottom:10%;" type='submit' class="btn btn-primary">Salvar</button>
 
 
                     
@@ -187,7 +190,27 @@ if (!empty($registro["imagem"])){
                     </div>
               </div>
             </div>
-
+        <br>
+        <h1>Notificações</h1>
+        <div class="form-control" style="width:250px;">
+            <?php if(isset($notificacoes)){
+                foreach($notificacoes as $notific){
+                    echo $notific["texto"];
+                    echo "<br>";
+                    
+                }
+                
+                
+            }
+?>
+            
+            
+            
+            
+            
+            
+        </div>
+        
           </div>
         
 
