@@ -21,25 +21,26 @@ echo mysqli_error($cnx);
 
 $id= $_GET["id"];
 
-$sql3="SELECT e.idUser, e.idEmprestante, e.idEmprestimo, u.nomeUser, l.nomeLivro FROM livros as l, emprestimos as e
-        INNER JOIN usuarios ON e.idUser=u.idUser WHERE e.idEmprestimo = (SELECT MAX(e.idEmprestimo));";
+$sql3="SELECT e.idUser, e.idEmprestante, e.idEmprestimo, u.nomeUser, l.nomeLivro FROM emprestimos as e
+        INNER JOIN usuarios as u ON e.idUser=u.idUser INNER JOIN livros as l ON l.idLivro = e.idLivro WHERE e.idEmprestimo = (select max(e.idEmprestimo) from emprestimos as e)";
 $result2=mysqli_query($cnx,$sql3);
-echo"<pre>";
-print_r($result2);
-die();
-$registro=mysqli_fetch_assoc($result2);
 
+$registro=mysqli_fetch_assoc($result2);
+echo mysqli_error($cnx);
 $idUser=$registro["idUser"];
 $idEmprestimo=$registro["idEmprestimo"];
 $nomeUser=$registro["nomeUser"];
 $nomeLivro=$registro["nomeLivro"];
-$texto=$nomeUser." emprestou seu livro '".$nomeLivro."'";
+$texto=$nomeUser." emprestou seu livro ".$nomeLivro;
+
+print_r($registro);
+die();
 $sql4="INSERT INTO notific (idUser,idEmprestimo,texto) VALUES('$idUser','$idEmprestimo','$texto')";
-mysqli_query($sql4);
+mysqli_query($cnx,$sql4);
+
 
 
 header("location:sobrelivro.php?id=".$id);
 
 
 ?>
-
