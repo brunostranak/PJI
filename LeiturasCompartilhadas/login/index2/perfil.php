@@ -11,7 +11,7 @@ $resultado2=mysqli_query($cnx,$sql2);
 $sql3="SELECT * FROM notific where idUser='$_SESSION[idUser]'";
 $resultado3=mysqli_query($cnx,$sql3);
 $notificacoes=mysqli_fetch_assoc($resultado3);
-print_r($notificacoes);
+
 while($livru=mysqli_fetch_assoc($resultado2)){
     $livros[]=$livru;
 }
@@ -40,7 +40,7 @@ rel="stylesheet">
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
-    
+
   </head>
   <body>
 
@@ -72,22 +72,22 @@ rel="stylesheet">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          
-          
+
+
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
             <ul class="navbar-nav ml-auto">
-              
+
                 <a class="nav-link" href="inicio.php">Home</a>
-              
+
               <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="ministry.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="perfil.php">Meu perfil</a>
                   <a class="dropdown-item" href="../deslogar.php">Sair</a>
-                  
+
                 </div>
                 </li>
-              
+
               <li class="nav-item">
                 <a class="nav-link" href="obras.php">Obras</a>
               </li>
@@ -98,8 +98,8 @@ rel="stylesheet">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
             </ul>
-            
-            
+
+
           </div>
         </div>
       </nav>
@@ -110,23 +110,23 @@ rel="stylesheet">
     <div class="container">
 <div class="row">
 
-      
+
 
             <div style="" class="col-md">
                 <form style="" action="../atualizarinfo.php" method="POST"
 enctype="multipart/form-data">
-                
-             
-                   
-<?php 
+
+
+
+<?php
 if (!empty($registro["imagem"])){
-    
+
 ?>
 
  <img class="mb-5 element-animate" src="../imagens/<?=$registro["imagem"];?>" alt="Foto de Perfil" style="border-radius: 0px; " width="150px" height="200px">
 <?php
 }else{
-   
+
 ?>
  <img class="mb-5 element-animate" src="../imagens/unknown.png" alt="Foto de Perfil" style="border-radius: 0px; " width="150px" height="200px">
 <?php
@@ -134,9 +134,9 @@ if (!empty($registro["imagem"])){
 ?>
 
 
-                    
+
                     <br>
-                    
+
                     <input type="file" name="imagem">
 
                     <br>
@@ -144,26 +144,26 @@ if (!empty($registro["imagem"])){
                     <button type='submit' class="btn btn-primary">Salvar</button>
                     </form>
                     </div>
-                
+
                 <div class="col-md">
                     <form style="margin-top:30%;" action="atualizarbio.php" method="post">
-                <textarea class="form-control" maxlength="450" cols="30" name="bio" placeholder="Escreva um pouco sobre seus gostos literários"><?php 
+                <textarea class="form-control" maxlength="450" cols="30" name="bio" placeholder="Escreva um pouco sobre seus gostos literários"><?php
                 echo @$registro['bio']; ?></textarea>
                         <br>
                 <button type='submit' class="btn btn-primary">Salvar</button>
             </form>
                 </div>
-          
+
               <div class="col-md">
 
-                
+
                 <h1 style="margin-left:20%;">Contato</h1>
-                
+
                 <div class="container">
                 <form style="width:250px;"class="form-control" action="atualizarcontato.php" method="post">
-                
+
                      <input class="form-control" name="email"
-                        value="<?php 
+                        value="<?php
                        echo @$registro['email']; ?>">
                     <br>
                     <script>
@@ -179,13 +179,13 @@ if (!empty($registro["imagem"])){
 }
 </script>
                     <input maxlength="15" onkeypress="Mascara(this);" class="form-control" name="telefone"
-                       value="<?php 
+                       value="<?php
                        echo @$registro['telefone']; ?>">
                     <br>
                    <button style="margin-left:32%;margin-bottom:10%;" type='submit' class="btn btn-primary">Salvar</button>
 
 
-                    
+
                     </form>
                     </div>
               </div>
@@ -194,42 +194,46 @@ if (!empty($registro["imagem"])){
         <h1>Notificações</h1>
         <div class="form-control" style="width:250px;">
             <?php if(isset($notificacoes)){
+              echo "<pre>";
+
+              print_r($notificacoes);
+
                 foreach($notificacoes as $notific){
                     echo $notific["texto"];
                     echo "<br>";
-                    
+
                 }
-                
-                
+
+
             }
 ?>
-            
-            
-            
-            
-            
-            
-        </div>
-        
-          </div>
-        
 
-    
+
+
+
+
+
+        </div>
+
+          </div>
+
+
+
       <br>
-      
+
     <br>
-    
+
     <!-- END section -->
-    
-    
+
+
 
         <br>
         <h1 style="text-align:center">MEU ACERVO</h1>
         <br>
-        
+
         <div class="container">
-        
-        
+
+
         <?php
         if(!empty($livros)){
             echo "<div class='row'>";
@@ -239,62 +243,62 @@ if (!empty($registro["imagem"])){
                     echo "<script>window.alert('Este livro não pode ser deletado pois está em empréstimo ou possui registros de feedback. Por favor, contate um administrador')</script>";
                     unset ($_SESSION["error"]);
                 }
-                
-                
-                
-?>
-            
-            
 
-       
-        <img onclick="javascript:excluir('<?php echo $livro['idLivro'];?>','<?php echo $livro['nomeLivro'];?>')"style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/x.png">   
-          
-        
-        
-        
-       <script> 
-           
-           function excluir(id,nome){ 
-               
+
+
+?>
+
+
+
+
+        <img onclick="javascript:excluir('<?php echo $livro['idLivro'];?>','<?php echo $livro['nomeLivro'];?>')"style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/x.png">
+
+
+
+
+       <script>
+
+           function excluir(id,nome){
+
            idlivro=id;
            nomelivro=nome;
-           
-          
-           
+
+
+
               if (window.confirm('Tem certeza que deseja excluir "'+ nomelivro +'" do acervo do clube?')){
-    
+
                 window.location.href = 'excluirlivro.php?id='+idlivro;
             }
-            
+
             }
-   
+
          </script>
          <a href="sobrelivro.php?id=<?=$livro['idLivro'];?>"><img class="image"
 style="width:250px;height:350px;padding:30px;"
 src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
        <?php
-        
-            
-            
+
+
+
         }
         echo "</div>";
         }
-       
+
        ?>
-    
+
 
         </div>
     </div>
         </div>
 
 
-    
+
       <footer class="site-footer">
       <div class="container">
-        
+
         <div class="row pt-5">
           <div class="col-md-12 text-center copyright">
-            
+
             <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -311,8 +315,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </footer>
     <!-- END footer -->
 
-    
-    
+
+
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
@@ -324,20 +328,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
     <script src="js/jquery.animateNumber.min.js"></script>
-    
+
     <script src="js/jquery.magnific-popup.min.js"></script>
 
     <script src="js/main.js"></script>
-    
+
   </body>
 </div>
-  
+
 </html>
 
 
 <?php
 }else{
-    
+
     header("location:../index.php");
 }
 ?>
