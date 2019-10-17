@@ -62,6 +62,7 @@ idNotific INT AUTO_INCREMENT,
 idUser INT,
 idEmprestimo INT,
 texto VARCHAR(450),
+dtInicio DATE,
 
 PRIMARY KEY (idNotific),
 FOREIGN KEY (idUser) REFERENCES usuarios (idUser),

@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 //ob_start();
@@ -10,11 +11,15 @@ $sql2="SELECT * FROM livros where idUser='$_SESSION[idUser]'";
 $resultado2=mysqli_query($cnx,$sql2);
 $sql3="SELECT * FROM notific where idUser='$_SESSION[idUser]'";
 $resultado3=mysqli_query($cnx,$sql3);
-$notificacoes=mysqli_fetch_assoc($resultado3);
 
 while($livru=mysqli_fetch_assoc($resultado2)){
     $livros[]=$livru;
 }
+
+while($notificacao=mysqli_fetch_assoc($resultado3)){
+     $notificacoes[]=$notificacao;
+}
+
 if($_SESSION["logado"]=="on"){
 ?>
 <!doctype html>
@@ -193,19 +198,37 @@ if (!empty($registro["imagem"])){
         <br>
         <h1>Notificações</h1>
         <div class="form-control" style="width:250px;">
-            <?php if(isset($notificacoes)){
-              echo "<pre>";
-
-              print_r($notificacoes);
-
+            <?php 
+            
+            if(isset($notificacoes)){
+              
                 foreach($notificacoes as $notific){
-                    echo $notific["texto"];
-                    echo "<br>";
-
+                    ?>
+            <p id='comentario' style='border-style: solid; background-color:#f7f7f7; border-color:#f7f7f7'>
+                <?php    
+                echo $notific["texto"];
+                echo " em ";
+                echo $notific["dtInicio"];
+                echo "<br>";
+                ?>
+            </p>
+            
+            <?php
                 }
-
-
+              ?>
+           <button type='submit' class="btn btn-primary">Limpar Notificações
+            <a href='limparnotific.php'></a>
+            </button>
+            <style>
+            a:hover {
+            color: purple;
+                }
+                
+                </style>
+            <?php
+                
             }
+            
 ?>
 
 
