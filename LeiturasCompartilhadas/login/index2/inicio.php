@@ -117,8 +117,8 @@ if($_SESSION["logado"]=="on"){
   
             <div class="mb-5 element-animate">
               <div class="block-17">
-                <h1 class="heading mb-4">Leituras Compartilhadas.</h1>
-                <p><a href="sobrenos.php" class="btn btn-primary-white py-3 px-5">Sobre nós</a>  </p>
+                <h1 style="text-shadow: 3px 2px black; class="heading mb-4">Leituras Compartilhadas</h1>
+                <p hidden ><a href="sobrenos.php" " class="btn btn-primary-white py-3 px-5">Sobre nós</a>  </p>
             </div>
             
           </div>
