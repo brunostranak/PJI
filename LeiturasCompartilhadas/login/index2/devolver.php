@@ -34,13 +34,13 @@ $nomeLivro=$registro["nomeLivro"];
 $texto=$nomeUser." devolveu seu livro ".$nomeLivro;
 
 $sql="UPDATE livros SET status='on' where idLivro=$id";
-$sql2="INSERT INTO notific (idUser,idEmprestimo,texto,dtInicio) VALUES('$idDono','$idEmprestimo','$texto','$dtInicio');";
+#$sql2="INSERT INTO notific (idUser,idEmprestimo,texto,dtInicio) VALUES('$idDono','$idEmprestimo','$texto','$dtInicio');";
 
 
 mysqli_query($cnx,$sql);
 
 
-mysqli_query($cnx,$sql2);
+#mysqli_query($cnx,$sql2);
 
 
 

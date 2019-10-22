@@ -163,9 +163,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
                 echo "Status:";
                 echo "<h5>Esse livro está com você, seu empréstimo expirará em ".date('d-m-Y', strtotime($dtFim))."</h5>";
                 ?>
-            <button onclick="window.location.href='devolver.php/?id=<?=$livro['idLivro'];?>'" type='submit' class="btn btn-primary">Devolver
             
-            </button>
             <?php
                
             }else{
@@ -174,6 +172,17 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
             echo "<h5>Livro indisponível para empréstimo, volte no dia ".date('d-m-Y', strtotime($dataFim['dtFim']))."</h5>";
         }
     }
+    } elseif ($livro["status"]=="afk") {
+        
+        
+        ?>
+            
+            
+        <button onclick="window.location.href='devolver.php/?id=<?=$livro['idLivro'];?>'" type='submit' class="btn btn-primary">Confirmar devolução
+
+            </button>
+            <?php
+        
     }
     
     ?>
