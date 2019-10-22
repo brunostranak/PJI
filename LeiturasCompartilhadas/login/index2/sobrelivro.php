@@ -102,7 +102,7 @@ if($_SESSION["logado"]=="on"){
                 <a class="nav-link" href="submeter.php">Submeter</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="contact.php">Contato</a>
               </li>
             </ul>
             
@@ -162,7 +162,11 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
             if($_SESSION["idUser"]==$idEmprestante){
                 echo "Status:";
                 echo "<h5>Esse livro está com você, seu empréstimo expirará em ".date('d-m-Y', strtotime($dtFim))."</h5>";
-                
+                ?>
+            <button onclick="window.location.href='devolver.php/?id=<?=$livro['idLivro'];?>'" type='submit' class="btn btn-primary">Devolver
+            
+            </button>
+            <?php
                
             }else{
                 

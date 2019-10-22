@@ -1,4 +1,7 @@
 <!doctype html>
+<?php
+session_start();
+?>
 <html lang="en">
   <head>
     <title>BrotherlyLove Bootstrap 4 Template by Colorlib</title>
@@ -27,31 +30,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <ul class="block-45-list">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-  
-            </ul>
-          </div>
-          <div class="col-md-6 text-md-right">
-            <ul class="block-45-icons">
-              <li><a href="3"><span class="fa fa-facebook"></span></a></li>
-              <li><a href="3"><span class="fa fa-twitter"></span></a></li>
-              <li><a href="3"><span class="fa fa-linkedin"></span></a></li>
-              <li><a href="3"><span class="fa fa-instagram"></span></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="wrap">
-
-    <div class="block-45">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-              <p style="color:white;font-size:15px">Olá,
-<?=$_SESSION["nomeUser"];?></p>
+            <p style="color:white;font-size:15px">Olá, <?=$_SESSION["nomeUser"];?></p>
           </div>
           <div class="col-md-6 text-md-right">
             <ul class="block-45-icons">
@@ -155,7 +134,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6 form-group">
-                      <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                      <input type="submit" value="Enviar mensagem" class="btn btn-primary py-3 px-5">
                     </div>
                   </div>
                 </form>
@@ -163,7 +142,7 @@
           <div class="col-md-4">
             
             <div class="block-23">
-              <h3 class="heading mb-5">Contact Information</h3>
+              <h3 class="heading mb-5">Informações de contato</h3>
               <ul>
                 <li><span class="icon ion-android-pin"></span><span class="text">Av. João Olímpio de Oliveira, 1561 - Vila Asem, Itapetininga - SP, 18202-000</span></li>
                 <li><a href="#"><span class="icon ion-ios-telephone"></span><span class="text">(15) 3376-9930</span></a></li>
@@ -181,85 +160,9 @@
     
     
   
-    <footer class="site-footer">
+<footer class="site-footer">
       <div class="container">
-        <div class="row mb-5">
-        <!--   <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-            <p>Perferendis eum illum voluptatibus dolore tempora consequatur minus asperiores temporibus.</p>
-          </div> -->
-          <div class="col-md-6 col-lg-6 mb-5 mb-lg-0">
-            <h3 class="heading">Church Quick Links</h3>
-            <div class="row">
-              <div class="col-md-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">Men's Ministry</a></li>
-                  <li><a href="#">Women's Ministry</a></li>
-                  <li><a href="#">Children's Ministry</a></li>
-                  <li><a href="#">Youth Ministry</a></li>
-                </ul>
-              </div>
-              <div class="col-md-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">Senior Adult Ministry</a></li>
-                  <li><a href="#">Marriage Ministries</a></li>
-                  <li><a href="#">Missions & Outreach</a></li>
-                  <li><a href="#">Prayer Ministry</a></li>
-                </ul>
-              </div>
-              <div class="col-md-4">
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Location</a></li>
-                  <li><a href="#">Contact</a></li>
-                  <li><a href="#">Privacy &amp; Policy</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-            <h3 class="heading">Events</h3>
-            <div class="block-21 d-flex mb-4">
-              <div class="text">
-                <h3 class="heading mb-0"><a href="#">Consectetur Adipisicing Elit</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>  
-            <div class="block-21 d-flex mb-4">
-              <div class="text">
-                <h3 class="heading mb-0"><a href="#">Dolore Tempora Consequatur</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>  
-            <div class="block-21 d-flex mb-4">
-              <div class="text">
-                <h3 class="heading mb-0"><a href="#">Perferendis eum illum</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
-                  <div><a href="#"><span class="ion-android-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
-                </div>
-              </div>
-            </div>  
-          </div>
-          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-            <h3 class="heading">Contact Information</h3>
-            <div class="block-23">
-              <ul>
-                <li><span class="icon ion-android-pin"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon ion-ios-telephone"></span><span class="text">+2 392 3929 210</span></a></li>
-                <li><a href="#"><span class="icon ion-android-mail"></span><span class="text">info@yourdomain.com</span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        
         <div class="row pt-5">
           <div class="col-md-12 text-center copyright">
             

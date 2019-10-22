@@ -100,7 +100,7 @@ rel="stylesheet">
                 <a class="nav-link" href="submeter.php">Submeter</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="contact.php">Contato</a>
               </li>
             </ul>
 
@@ -203,6 +203,9 @@ if (!empty($registro["imagem"])){
             if(isset($notificacoes)){
               
                 foreach($notificacoes as $notific){
+                    
+                    
+                       
                     ?>
             <p id='comentario' style='border-style: solid; background-color:#f7f7f7; border-color:#f7f7f7'>
                 <?php    
@@ -212,24 +215,26 @@ if (!empty($registro["imagem"])){
                 echo "<br>";
                 ?>
             </p>
-            
+                
             <?php
+                    }
+                ?>
+            <button onclick="window.location.href = 'limparnotific.php'"type='submit' class="btn btn-primary">Limpar Notificações
+            
+            </button>
+            <?php
+                }else{
+                    echo "Não há notificações no momento";
                 }
               ?>
-           <button type='submit' class="btn btn-primary">Limpar Notificações
-            <a href='limparnotific.php'></a>
-            </button>
+           
             <style>
             a:hover {
             color: purple;
                 }
                 
                 </style>
-            <?php
-                
-            }
-            
-?>
+          
 
 
 
