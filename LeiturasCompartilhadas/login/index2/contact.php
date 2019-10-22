@@ -58,7 +58,7 @@ session_start();
 
                 <a class="nav-link" href="inicio.php">Home</a>
 
-              <li class="nav-item dropdown active">
+              <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="ministry.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="perfil.php">Meu perfil</a>
@@ -73,8 +73,8 @@ session_start();
               <li class="nav-item">
                 <a class="nav-link" href="submeter.php">Submeter</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="contact.php">Contato</a>
               </li>
             </ul>
 
@@ -93,7 +93,7 @@ session_start();
   
             <div class="mb-5 element-animate">
               <div class="block-17">
-                <h1 class="heading mb-4">Contact Us</h1>
+                <h1 class="heading mb-4">Contate-nos</h1>
               </div>
             </div>
             

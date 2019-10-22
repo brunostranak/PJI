@@ -202,6 +202,7 @@ if (!empty($registro["imagem"])){
             
             if(isset($notificacoes)){
               
+                $notificacoes=array_reverse($notificacoes);
                 foreach($notificacoes as $notific){
                     
                     

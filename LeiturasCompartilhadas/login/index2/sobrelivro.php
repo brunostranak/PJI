@@ -24,6 +24,14 @@ $result3=mysqli_query($cnx,$sql5);
 $dataFim= mysqli_fetch_assoc($result3);
 
 
+$sql6= "SELECT u.nomeUser FROM usuarios as u INNER JOIN emprestimos as e ON e.idEmprestante = u.idUser
+       WHERE e.idUser = $_SESSION[idUser] and e.idLivro = $idlivro ORDER BY e.idEmprestimo DESC";
+$result4= mysqli_query($cnx,$sql6);
+$nome=mysqli_fetch_assoc($result4);
+
+ 
+
+
 if($_SESSION["logado"]=="on"){
     
     
@@ -179,6 +187,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" >
             
             
         <button onclick="window.location.href='devolver.php/?id=<?=$livro['idLivro'];?>'" type='submit' class="btn btn-primary">Confirmar devolução
+            de <?=$nome["nomeUser"]?>
 
             </button>
             <?php
