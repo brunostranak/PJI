@@ -86,7 +86,7 @@ session_start();
     </header>
     <!-- END header -->
 
-    <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/boi2.jpg);">
+    <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-color:#6c5b7b;">
       <div class="container">
         <div class="row align-items-center justify-content-center site-hero-inner">
           <div class="col-md-8 text-center">
@@ -167,7 +167,7 @@ session_start();
           <div class="col-md-12 text-center copyright">
             
             <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados Bruno Stranak | Fernanda Camilo
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             <p class="float-md-right">
               <a href="#" class="fa fa-facebook p-2"></a>
