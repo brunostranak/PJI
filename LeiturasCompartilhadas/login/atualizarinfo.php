@@ -7,7 +7,7 @@ require("conexaobd.php");
             // Caminho de onde ficará a imagem
             
      
-            move_uploaded_file($imagem["tmp_name"],"C:/xampp/htdocs/PJI/LeiturasCompartilhadas/login/imagens/".$imagem["name"]);
+            move_uploaded_file($imagem["tmp_name"],"C:/wamp64/www/PJI/LeiturasCompartilhadas/login/imagens/".$imagem["name"]);
             
            
             
