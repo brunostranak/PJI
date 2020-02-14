@@ -5,6 +5,9 @@ USE PJI;
 CREATE TABLE usuarios(
 idUser INT AUTO_INCREMENT,
 nomeUser VARCHAR(60),
+dtNasc DATE,
+genero VARCHAR(20),
+curso VARCHAR(60),
 email VARCHAR(60),
 senha VARCHAR(20),
 imagem VARCHAR(20),
