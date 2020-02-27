@@ -183,18 +183,7 @@ if($_SESSION["logado"]=="on"){
                         {
                             
                            
-                           const bola = () => {
-                               
-                           
-                            <?php
-                            
-                            $sql4="DELETE FROM notific_temp WHERE idUser='$_SESSION[idUser]'";
-                            mysqli_query($cnx, $sql4);
-                            echo mysqli_error($cnx);
-                            
-                            ?>
-                                        }
-                             bola();
+                     
                             
                             
                         $("#notificationContainer").fadeToggle(300);
@@ -258,7 +247,14 @@ if($_SESSION["logado"]=="on"){
                     </div>
 
                     </li>
-                    <?php }?>
+                    <?php }
+                    
+                    
+                    $sql4="DELETE FROM notific_temp WHERE idUser='$_SESSION[idUser]'";
+                            mysqli_query($cnx, $sql4);
+                            echo mysqli_error($cnx);
+                            
+                            ?>
             </ul>
             
             
