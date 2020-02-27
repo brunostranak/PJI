@@ -49,6 +49,8 @@ $texto=$nomeUser." emprestou seu livro ".$nomeLivro;
 $sql4="INSERT INTO notific (idUser,idEmprestimo,texto,dtInicio) VALUES('$idDono','$idEmprestimo','$texto','$dtInicio')";
 mysqli_query($cnx,$sql4);
 
+$sql5="INSERT INTO notific_temp (idUser,idEmprestimo,texto,dtInicio) VALUES('$idDono','$idEmprestimo','$texto','$dtInicio')";
+mysqli_query($cnx,$sql5);
 
 
 header("location:sobrelivro.php?id=".$id);

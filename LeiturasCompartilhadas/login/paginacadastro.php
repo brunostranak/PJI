@@ -72,7 +72,7 @@ session_start();
     <input onkeypress="Mascara(this);" required type="text"  placeholder="Celular" name="telefone" maxlength="15"/>
     
     
-    
+    <span style="float:left; margin-left:6%;"> Curso</span>
     <select required class="form-control" required id="curso" name="curso">
         <option value="info1">1º ano Integrado Informática</option>
         <option value="info2">2º ano Integrado Informática</option>
@@ -88,6 +88,9 @@ session_start();
     
     <br>
     
+    <span style="float:left; margin-left:6%;"> Gênero</span>
+    
+    <br>
     <label for="male">Masculino</label>
     
     <input style="width:20px;" type="radio" id="male" name="gender" value="male">

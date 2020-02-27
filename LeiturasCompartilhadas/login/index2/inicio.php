@@ -179,7 +179,24 @@ if($_SESSION["logado"]=="on"){
                         $(document).ready(function()
                         {
                         $("#notificationLink").click(function()
+                                               
                         {
+                            
+                           
+                           const bola = () => {
+                               
+                           
+                            <?php
+                            
+                            $sql4="DELETE FROM notific_temp WHERE idUser='$_SESSION[idUser]'";
+                            mysqli_query($cnx, $sql4);
+                            echo mysqli_error($cnx);
+                            
+                            ?>
+                                        }
+                             bola();
+                            
+                            
                         $("#notificationContainer").fadeToggle(300);
                         $("#notification_count").fadeOut("slow");
                         return false;
@@ -197,18 +214,51 @@ if($_SESSION["logado"]=="on"){
                         });
 
                         });
-            </script>
+           </script>
+            
+            
+            <?php
+            
+            
+           
+            
+            $sql3="SELECT * FROM notific_temp WHERE idUser='$_SESSION[idUser]'";
+            
+            $resultado3=mysqli_query($cnx,$sql3);
+                    
+            while($notific=mysqli_fetch_assoc($resultado3)){
+                
+                $notifics[]=$notific;
+            }
+            
+            
+            ?>
+            <a href="#" class="nav-link" id="notificationLink">Notificações</a>
+            <?php if (!empty($notifics)){?>
               <li id="notification_li">
-                    <span id="notification_count">3</span>
-                    <a href="#" class="nav-link" id="notificationLink">Notificações</a>
+                    <span id="notification_count"><?php count($notifics); ?></span>
+                    
                     <div id="notificationContainer">
                     <div id="notificationTitle">Notificações</div>
                     <div id="notificationsBody" class="notifications">
+                        
+                        <?php
+                        
+                        foreach($notifics as $notific){
+                            
+                            echo $notific["texto"];
+                            echo "<br>";
+                        }
+                        
+                        ?>
+                        
+                        
                     </div>
-                    <div id="notificationFooter"><a href="#">Ver todas</a></div>
+                    <a href="perfil.php"><div id="notificationFooter">Ver todas</div></a>
                     </div>
 
                     </li>
+                    <?php }?>
             </ul>
             
             
