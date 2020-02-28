@@ -201,8 +201,13 @@ if($_SESSION["logado"]=="on"){
                         {
                         return false;
                         });
-
+                        $("$notificationFooter").click(function(){
+                            alert("oi");
+                        window.location="notific.php";
+                      
                         });
+                    });
+                        
            </script>
             
             
@@ -249,10 +254,6 @@ if($_SESSION["logado"]=="on"){
                     </li>
                     <?php }
                     
-                    
-                    $sql4="DELETE FROM notific_temp WHERE idUser='$_SESSION[idUser]'";
-                            mysqli_query($cnx, $sql4);
-                            echo mysqli_error($cnx);
                             
                             ?>
             </ul>
