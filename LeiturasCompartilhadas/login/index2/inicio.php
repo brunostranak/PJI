@@ -176,25 +176,34 @@ if($_SESSION["logado"]=="on"){
               
               <script type="text/javascript" src="js/jquery.min.js"></script>
                <script type="text/javascript" >
-                        $(document).ready(function()
+                    $(document).ready(function()
                         {
-                        $("#notificationLink").click(function()
-                                               
-                        {
-                            
-                           
+                        $("#notificationLink").click(function(){
+                                              
                      
                             
                             
-                        $("#notificationContainer").fadeToggle(300);
-                        $("#notification_count").fadeOut("slow");
-                        return false;
+                            $("#notificationContainer").fadeToggle(300);
+                            $("#notification_count").fadeOut("slow");
+                            return false;
                         });
-
+                        
+                        var data_notific = localStorage.getItem('notifc');
+                        
+                        if(data_notific !== ""){
+                            data_notific = JSON.parse(data_notific);
+                            console.log(data_notific[0].texto);
+                            $("#notificationsBody").innerHTML = data_notific[0].texto;
+                            
+                            
+                        }
                         //Document Click
                         $(document).click(function()
                         {
-                        $("#notificationContainer").hide();
+                        $("#notificationContainer").hide()(function(){
+                            data_notific = localStorage.removeItem('notifc');
+                            
+                        });
                         });
                         //Popup Click
                         $("#notificationContainer").click(function()
@@ -202,17 +211,19 @@ if($_SESSION["logado"]=="on"){
                         return false;
                         });
                         $("$notificationFooter").click(function(){
-                            alert("oi");
-                        window.location="notific.php";
-                      
+                            
+                        return false;
                         });
+                        
+                      
+                        
                     });
                         
            </script>
             
             
             <?php
-            
+            die();
             
            
             
@@ -225,10 +236,13 @@ if($_SESSION["logado"]=="on"){
                 $notifics[]=$notific;
             }
             
+            $data_notific = json_encode($notifics);
+            
+            echo "<script> localStorage.setItem('notifc','$data_notific') </script>";
             
             ?>
             <a href="#" class="nav-link" id="notificationLink">Notificações</a>
-            <?php if (!empty($notifics)){?>
+            <?php if (!empty($data_notific)){?>
               <li id="notification_li">
                     <span id="notification_count"><?php count($notifics); ?></span>
                     
@@ -236,14 +250,12 @@ if($_SESSION["logado"]=="on"){
                     <div id="notificationTitle">Notificações</div>
                     <div id="notificationsBody" class="notifications">
                         
-                        <?php
-                        
+                        <?php                        
                         foreach($notifics as $notific){
                             
                             echo $notific["texto"];
                             echo "<br>";
                         }
-                        
                         ?>
                         
                         
