@@ -175,7 +175,24 @@ if($_SESSION["logado"]=="on"){
               </li>
               
               <script type="text/javascript" src="js/jquery.min.js"></script>
-               <script type="text/javascript" >
+              
+               <?php
+
+                $sql3="SELECT * FROM notific_temp WHERE idUser='$_SESSION[idUser]'";
+
+                $resultado3=mysqli_query($cnx,$sql3);
+
+                while($notific=mysqli_fetch_assoc($resultado3)){
+
+                    $notifics[]=$notific;
+                }
+
+                $data_notific = json_encode($notifics);
+
+                echo "<script> localStorage.setItem('notifc','$data_notific') </script>";
+            
+            ?>
+                <script type="text/javascript" >
                     $(document).ready(function()
                         {
                         $("#notificationLink").click(function(){
@@ -188,22 +205,11 @@ if($_SESSION["logado"]=="on"){
                             return false;
                         });
                         
-                        var data_notific = localStorage.getItem('notifc');
-                        
-                        if(data_notific !== ""){
-                            data_notific = JSON.parse(data_notific);
-                            console.log(data_notific[0].texto);
-                            $("#notificationsBody").innerHTML = data_notific[0].texto;
-                            
-                            
-                        }
+                       
                         //Document Click
                         $(document).click(function()
                         {
-                        $("#notificationContainer").hide()(function(){
-                            data_notific = localStorage.removeItem('notifc');
-                            
-                        });
+                        $("#notificationContainer").hide()
                         });
                         //Popup Click
                         $("#notificationContainer").click(function()
@@ -222,25 +228,7 @@ if($_SESSION["logado"]=="on"){
            </script>
             
             
-            <?php
-            die();
-            
            
-            
-            $sql3="SELECT * FROM notific_temp WHERE idUser='$_SESSION[idUser]'";
-            
-            $resultado3=mysqli_query($cnx,$sql3);
-                    
-            while($notific=mysqli_fetch_assoc($resultado3)){
-                
-                $notifics[]=$notific;
-            }
-            
-            $data_notific = json_encode($notifics);
-            
-            echo "<script> localStorage.setItem('notifc','$data_notific') </script>";
-            
-            ?>
             <a href="#" class="nav-link" id="notificationLink">Notificações</a>
             <?php if (!empty($data_notific)){?>
               <li id="notification_li">
@@ -258,10 +246,10 @@ if($_SESSION["logado"]=="on"){
                         }
                         ?>
                         
-                        
-                    </div>
-                    <a href="perfil.php"><div id="notificationFooter">Ver todas</div></a>
-                    </div>
+                     </div>
+                    <a href="perfil.php"><div id="notificationFooter">Ok!</div></a>
+                    </div>   
+                   
 
                     </li>
                     <?php }
