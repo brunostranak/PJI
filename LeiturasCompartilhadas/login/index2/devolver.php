@@ -44,5 +44,5 @@ mysqli_query($cnx,$sql);
 
 
 
-header("location:http://localhost/LeiturasCompartilhadas/login/index2/sobrelivro.php?id=$id");
+header("location:http://localhost/PJI/LeiturasCompartilhadas/login/index2/sobrelivro.php?id=$id");
 ?>
