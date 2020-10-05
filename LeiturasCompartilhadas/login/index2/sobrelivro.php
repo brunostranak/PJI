@@ -11,13 +11,24 @@ $livro = mysqli_fetch_assoc($resultado2);
 
 $sql3 = "SELECT idEmprestante from emprestimos WHERE idLivro='$idlivro'";
 $result = mysqli_query($cnx, $sql3);
-$idEmprestante = mysqli_fetch_assoc($result);
-$idEmprestante = $idEmprestante["idEmprestante"];
+
+
+$registros = mysqli_fetch_assoc($result);
+$idEmprestante = $registros["idEmprestante"];
+
 
 $sql4 = "SELECT dtFim from emprestimos WHERE idEmprestante='$_SESSION[idUser]'";
 $result2 = mysqli_query($cnx, $sql4);
+
+
 $dtFim = mysqli_fetch_assoc($result2);
+echo mysqli_error($cnx);
+
+if (!empty($dtFim)){
 $dtFim = $dtFim["dtFim"];
+}
+
+
 
 $sql5 = "SELECT dtFim from emprestimos WHERE idLivro='$idlivro'";
 $result3 = mysqli_query($cnx, $sql5);
