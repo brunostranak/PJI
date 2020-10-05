@@ -113,7 +113,7 @@ rel="stylesheet">
         if(isset($_SESSION["error"])){
         if($_SESSION["error"]==1){
             echo "<div class='alert alert-danger' role='alert'>
-  Não foi possível submeter essa obra, tente novamente
+  Não foi possível submeter essa obra, tente retirar as aspas do resumo ou entre em contato com os desenvolvedores.
 </div>";
         } elseif ($_SESSION["error"]==0) {
            echo "<div class='alert alert-success' role='alert'>
@@ -143,7 +143,7 @@ enctype="multipart/form-data">
             
             
             <div class="form-group">
-<textarea form="livroform" class="form-control" required name="resumo" placeholder="Breve resumo" rows="10"
+<textarea form="livroform" class="form-control" required name="resumo" placeholder="Breve resumo (max 1000 caracteres)" rows="10"
 cols="50"></textarea>
                 </div>
             <br>
