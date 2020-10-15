@@ -93,6 +93,8 @@ if($_SESSION["logado"]=="on"){
     position: absolute;
     margin-top: -11px;
     font-size: 11px;
+    
+   
     }
     </style>
     <title>Leituras Compartilhadas</title>
@@ -186,14 +188,14 @@ if($_SESSION["logado"]=="on"){
     </header>
     <!-- END header -->
 
-    <section class="site-hero overlay" style="background-image: url(images/books.jpg);">
+    <section class="site-hero overlay" style="background-image: url(images/livros.jpg);">
       <div class="container">
         <div class="row align-items-center justify-content-center site-hero-inner">
           <div class="col-md-8 text-center">
   
             <div class="mb-5 element-animate">
               <div class="block-17">
-                <h1 style="text-shadow: 3px 2px black; class="heading mb-4">Leituras Compartilhadas</h1>
+                <h1 style="text-shadow: 3px 2px black;margin-top:-50%;">Leituras Compartilhadas</h1>
                 <p hidden ><a href="sobrenos.php" " class="btn btn-primary-white py-3 px-5">Sobre nós</a>  </p>
             </div>
             
