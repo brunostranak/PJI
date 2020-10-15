@@ -128,12 +128,12 @@ if (!empty($registro["imagem"])){
 
 ?>
 
- <img class="mb-5 element-animate" src="../imagens/<?=$registro["imagem"];?>" alt="Foto de Perfil" style="border-radius: 0px; " width="150px" height="200px">
+ <img class="mb-5 element-animate" src="../imagens/<?=$registro["imagem"];?>" alt="Foto de Perfil" style="border-radius: 0px; " width="150px" height="150px">
 <?php
 }else{
 
 ?>
- <img class="mb-5 element-animate" src="../imagens/unknown.png" alt="Foto de Perfil" style="border-radius: 0px; " width="150px" height="200px">
+ <img class="mb-5 element-animate" src="../imagens/unknown.png" alt="Foto de Perfil" style="border-radius: 0px; " width="150px" height="150px">
 <?php
 }
 ?>
