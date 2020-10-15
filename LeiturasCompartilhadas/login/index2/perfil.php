@@ -326,7 +326,7 @@ src="../imagens/<?=$livro["imagem"];?>" alt="Image placeholder" ></a>
           <div class="col-md-12 text-center copyright">
 
             <p class="float-md-left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados Bruno Stranak | Fernanda Camilo
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             <p class="float-md-right">
               <a href="#" class="fa fa-facebook p-2"></a>
