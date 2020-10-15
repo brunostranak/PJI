@@ -14,8 +14,9 @@ $result = mysqli_query($cnx, $sql3);
 
 
 $registros = mysqli_fetch_assoc($result);
+if(!empty($registros)){
 $idEmprestante = $registros["idEmprestante"];
-
+}
 
 $sql4 = "SELECT dtFim from emprestimos WHERE idEmprestante='$_SESSION[idUser]'";
 $result2 = mysqli_query($cnx, $sql4);
@@ -47,6 +48,7 @@ if ($_SESSION["logado"] == "on") {
     ?>
     <!doctype html>
     <html lang="pt">
+        
         <head>
 
             <meta charset="utf-8">
@@ -134,7 +136,7 @@ if ($_SESSION["logado"] == "on") {
                     <p  style="margin-left:60%;float:right" id="sinopse">
                     <div class="container">
                         <img class="image"
-                             style="width:250px;height:350px;padding:30px;margin-top:-3%;float:left;margin-left:"
+                             style="padding:30px;width:350px;height:520px;margin-top:-3%;float:left;margin-left:"
                              src="../imagens/<?= $livro["imagem"]; ?>" alt="Image placeholder" >    
 
                         <?php echo "Resumo:"; ?>
@@ -159,7 +161,7 @@ if ($_SESSION["logado"] == "on") {
                             ?>  
 
 
-                            <button onclick="javascript:emprestar(<?= $livro['idLivro']; ?>)" type="submit" href="" class="btn btn-primary">EMPRESTAR</button>
+                            <button style="" onclick="javascript:emprestar(<?= $livro['idLivro']; ?>)" type="submit" href="" class="btn btn-primary">EMPRESTAR</button>
 
                             <script>
                                 function emprestar(id) {
@@ -184,22 +186,33 @@ if ($_SESSION["logado"] == "on") {
                             }
                         }
                     } elseif ($livro["status"] == "afk") {
+                        
+
+                        echo "Dono: ";
+                        echo "<h5>" . $resul2["nomeUser"] . "</h5>";
+                        echo "Contato: ";
+                        echo "<h5>" . $resul2["email"] . " - " . $resul2["telefone"] . "</h5>";   
                         ?>
-
-
                         <button onclick="window.location.href = 'devolver.php/?id=<?= $livro['idLivro']; ?>'" type='submit' class="btn btn-primary">Confirmar devolução
                             de <?= $nome["nomeUser"] ?>
 
                         </button>
                         <?php
+                    }else{
+                        echo "Dono: ";
+                        echo "<h5>" . $resul2["nomeUser"] . "</h5>";
+                        echo "Contato: ";
+                        echo "<h5>" . $resul2["email"] . " - " . $resul2["telefone"] . "</h5>";
                     }
                     ?>
 
 
                     <br>
-                    <h4 style="margin-left:28%;">Conte-nos aqui, sua experiência com essa obra:</h4>
-                    <form style="text-align:center;" action="feedbacks.php?idlivro=<?= $livro["idLivro"]; ?>" method="post">
-                        <textarea rows="2" cols="40" maxlength="500" name="fb"> </textarea>
+                    <br>
+                    
+                    <h4 style="">Conte-nos aqui, sua experiência com essa obra:</h4>
+                    <form style="" action="feedbacks.php?idlivro=<?= $livro["idLivro"]; ?>" method="post">
+                        <textarea rows="3" cols="60" maxlength="500" name="fb"> </textarea>
                         <br>
 
                         <button type="submit" class="btn btn-primary">Enviar</button>
@@ -207,34 +220,73 @@ if ($_SESSION["logado"] == "on") {
 
                     </form>
                     <br>
-
+                    <br>
 
 
                     <div style="text-align:center" class="container">
 
 
                         <?php
-                        $sql6 = "SELECT u.nomeUser, u.imagem, f.feedback FROM usuarios as u INNER JOIN feedbacks as f ON u.idUser = f.idUser WHERE f.idLivro = $livro[idLivro]";
+                        $sql6 = "SELECT  u.nomeUser, u.imagem, f.feedback, f.idUser, f.idFeedback, f.idLivro FROM usuarios as u INNER JOIN feedbacks as f ON u.idUser = f.idUser WHERE f.idLivro = $livro[idLivro]";
                         $resuls = mysqli_query($cnx, $sql6);
 
                         while ($resu = mysqli_fetch_assoc($resuls)) {
                             $dados[] = $resu;
                         }
                         if (!empty($dados)) {
-
+                            
+                            
                             echo "<div id='coments'>";
                             foreach ($dados as $dado) {
+                                
                                 ?>
-                                <div class="container" id='borda' style='width:500px; word-wrap: break-word;'>
-                                    <p id='comentario' style='border-style: solid; background-color:#f7f7f7; border-color:#f7f7f7'>
+                        
+                                <div class="container" id='borda' style='word-wrap: break-word;'>
+                                    <img style='width:60px;height:60px;float:left;' src='../imagens/<?= $dado['imagem']; ?>'>
+                                    <p id='comentario' style='border-style: solid; background-color:#f7f7f7; border-color:#f7f7f7;'>
+                                        <?php if ($_SESSION["idUser"]==$dado["idUser"]){
+                                            ?>
+                                    
+                                        <img title="Excluir" onclick="javascript:excluir('<?php echo $dado['idFeedback'];?>','<?= $dado['idLivro']?>')"style="float:right;width:20px;height:20px;" src="../imagens/excluir.png">
+                                        
+                                    
+                                    
+                                   
+
+                                    
 
 
-                                        <img style='width:60px;height:60px;float:left;' src='../imagens/<?= $dado['imagem']; ?>'>
-                                    <h7  style='font-weight:bold;'><?= $dado["nomeUser"]; ?></h7>
-                                    <?= "disse: "; ?>
+                                        <script>
+                                            
+                                            function excluir(feed,livro){
+
+                                            idfeed=feed;
+                                            idlivro=livro;
+                                           
+
+
+
+                                               if (window.confirm('Tem certeza que deseja excluir esse comentário?')){
+                                                        
+                                                 window.location.href = 'excluircomentario.php?feed='+idfeed+'&livro='+idlivro;
+                                             }
+
+                                             }
+                                           
+                                             
+
+                                          </script> 
+                                          <?php
+                                        }
+                                          ?>
+                                        
+                                    <h7  style='display:flex;font-weight:bold;float:left;margin-left:2%'><?= $dado["nomeUser"]; ?></h7>
+                                    
                                     <br>
                                     <br>
-                                    <span style="text-align:center" id='fb' style='margin-left:22.2%'><?= $dado["feedback"]; ?></span>
+                                    <span style="display:flex;margin-top:-3%;float:left;margin-left:7.4%;text-align:justify;width:800px; " id='fb'><?= $dado["feedback"]; ?></span>
+                                    <br>
+                                    
                                     <br>
                                     </p>
                                 </div>

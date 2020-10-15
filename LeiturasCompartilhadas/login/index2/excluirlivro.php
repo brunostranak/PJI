@@ -15,15 +15,19 @@ mysqli_query($cnx, $sql3);
 
 
 $sql="delete FROM livros where idLivro = '$idlivro'";
-$sql2="SELECT * FROM livros where idLivro='$idlivro' and status='on' and qtdFeed='NULL'";
+$sql2="SELECT * FROM livros where idLivro='$idlivro' and qtdFeed='NULL'";
 
 $status= mysqli_query($cnx,$sql2);
 $status= mysqli_fetch_assoc($status);
-print_r($status);
+
+$sql4="SELECT status FROM emprestimos where idLivro='$idlivro'";
+$status2= mysqli_query($cnx,$sql4);
+$status2= mysqli_fetch_assoc($status2);
 
 
+if((empty($status2["status"])) and ($status["qtdFeed"]==0)){
 
-if(!empty($status)){
+
 mysqli_query($cnx,$sql);
 
 
@@ -34,15 +38,3 @@ $_SESSION["error"]=1;
     
 header("location:perfil.php");
 }
-    
-    
-    
-    
-
-
-
-
-
-
-
-

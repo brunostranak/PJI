@@ -269,7 +269,7 @@ if (!empty($registro["imagem"])){
             echo "<div class='col-md-12'>";
             foreach ($livros as $livro){
                 if(isset($_SESSION["error"])){
-                    echo "<script>window.alert('Este livro não pode ser deletado pois está em empréstimo ou possui registros de feedback. Por favor, contate um administrador')</script>";
+                    echo "<script>window.alert('Este livro não pode ser deletado pois possui registros de feedback ou de empréstimos. Por favor, contate um administrador')</script>";
                     unset ($_SESSION["error"]);
                 }
 
@@ -280,7 +280,7 @@ if (!empty($registro["imagem"])){
 
 
 
-        <img onclick="javascript:excluir('<?php echo $livro['idLivro'];?>','<?php echo $livro['nomeLivro'];?>')"style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/x.png">
+        <img onclick="javascript:excluir('<?php echo $livro['idLivro'];?>','<?php echo $livro['nomeLivro'];?>')"style="width:20px;height:20px;margin-bottom:270px;" src="../imagens/excluir.png">
 
 
 

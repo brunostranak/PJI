@@ -40,7 +40,8 @@ $sql="UPDATE livros SET status='on' where idLivro=$id";
 mysqli_query($cnx,$sql);
 
 
-#mysqli_query($cnx,$sql2);
+$sql2="UPDATE emprestimos SET status='inativo' where idLivro=$id";
+mysqli_query($cnx,$sql2);
 
 
 

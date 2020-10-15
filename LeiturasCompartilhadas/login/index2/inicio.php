@@ -307,39 +307,7 @@ src="../imagens/<?=$dado["imagem"];?>" alt="Image placeholder" ></a>
         
       
     
-<div class="container">
-    
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-heading mb-5">
-              <h2 class="heading">Citações</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-5">
 
-            <div class="block-33">
-              <div class="text mb-5">
-                <blockquote>
-                  <p>&rdquo;Com algum distanciamento, os bons romances se tornam perfeitamente parecidos com fenômenos naturais; esquecemos que possuem um autor, os aceitamos como pedras ou árvores, porque estão aí, porque existem. &ldquo;</p>
-                </blockquote>
-              </div>
-              <div class="vcard d-flex">
-                <div class="image align-self-center ml-auto order-2 ml-3"><img src="images/sartre.jpg" alt="Person here"></div>
-                <div class="name-text align-self-center ml-auto order-1 text-right">
-                  <h2 class="heading">Jean-Paul Sartre</h2>
-                  <!--<span class="meta">New York</span>!-->
-                </div>
-              </div>
-            </div>
-
-        </div>
-      </div>
-    </div>
-        
-</div>
 
     
   

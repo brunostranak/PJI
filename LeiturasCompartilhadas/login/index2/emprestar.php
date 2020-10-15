@@ -13,7 +13,7 @@ $sql1= "SELECT idUser from livros WHERE idLivro='$_GET[id]'";
 $result=mysqli_query($cnx,$sql1);
 $idDono= mysqli_fetch_assoc($result);
 $idDono= $idDono["idUser"];
-$sql2= "INSERT INTO emprestimos (idLivro,idUser,idEmprestante,dtInicio,dtFim ) VALUES('$_GET[id]','$idDono','$_SESSION[idUser]','$dtInicio','$dtFim')";
+$sql2= "INSERT INTO emprestimos (idLivro,idUser,idEmprestante,dtInicio,dtFim,status ) VALUES('$_GET[id]','$idDono','$_SESSION[idUser]','$dtInicio','$dtFim','ativo')";
 mysqli_query($cnx,$sql);
 mysqli_query($cnx,$sql2);
 
@@ -51,6 +51,7 @@ mysqli_query($cnx,$sql4);
 
 $sql5="INSERT INTO notific_temp (idUser,idEmprestimo,texto,dtInicio) VALUES('$idDono','$idEmprestimo','$texto','$dtInicio')";
 mysqli_query($cnx,$sql5);
+
 
 
 header("location:sobrelivro.php?id=".$id);

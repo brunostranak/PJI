@@ -38,6 +38,7 @@ idLivro INT,
 idEmprestante INT,
 dtInicio DATE,
 dtFim DATE,
+status VARCHAR(10),
 
 
 PRIMARY KEY (idEmprestimo),
