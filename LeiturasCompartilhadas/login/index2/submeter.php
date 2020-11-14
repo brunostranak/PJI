@@ -140,6 +140,14 @@ enctype="multipart/form-data">
             <input type="text" class="form-control" required name="editora" placeholder="Editora">
             </div>
             
+            <div class="form-group">
+            <input type="text" class="form-control" required name="paginas" placeholder="Número de páginas">
+            </div>
+            
+            <div class="form-group">
+            <input type="text" class="form-control" required name="ano" placeholder="Ano de publicação">
+            </div>
+            
             
             
             <div class="form-group">

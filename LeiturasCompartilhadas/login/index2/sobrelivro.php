@@ -140,8 +140,18 @@ if ($_SESSION["logado"] == "on") {
                              src="../imagens/<?= $livro["imagem"]; ?>" alt="Image placeholder" >    
 
                         <?php echo "Resumo:"; ?>
-                        <br>
+                        
                         <?php echo "<h5>" . $livro['resumo'] . "</h5>"; ?>
+                        
+                        <?php echo "Páginas:"; ?>
+                        
+                        <?php echo "<h5>" . $livro['páginas'] . "</h5>"; ?>
+                        
+                        <?php echo "Ano de publicação:"; ?>
+                        
+                        <?php echo "<h5>" . $livro['ano'] . "</h5>"; ?>
+                        
+                        
 
                     </div>
 
@@ -170,12 +180,15 @@ if ($_SESSION["logado"] == "on") {
                                 }
 
                             </script>
+                            <br>
                             <?php
                         } else {
 
                             if ($_SESSION["idUser"] == $idEmprestante) {
                                 echo "Status:";
                                 echo "<h5>Esse livro está com você, seu empréstimo expirará em " . date('d-m-Y', strtotime($dtFim)) . "</h5>";
+                                echo "<br>";
+                                echo "<br>";
                                 ?>
 
                                 <?php
@@ -193,10 +206,20 @@ if ($_SESSION["logado"] == "on") {
                         echo "Contato: ";
                         echo "<h5>" . $resul2["email"] . " - " . $resul2["telefone"] . "</h5>";   
                         ?>
-                        <button onclick="window.location.href = 'devolver.php/?id=<?= $livro['idLivro']; ?>'" type='submit' class="btn btn-primary">Confirmar devolução
-                            de <?= $nome["nomeUser"] ?>
-
-                        </button>
+                            <button onclick="javascript:devolver(<?= $livro['idLivro']; ?>)" type='submit' class="btn btn-primary">Confirmar devolução de <?= $nome["nomeUser"] ?></button>
+                            
+                            <script>
+                                
+                                function devolver(id){
+                                    idlivro = id;
+                                    window.location.href= 'devolver.php?id='+idlivro;
+                                }
+                            
+                            
+                            
+                            </script>
+                                
+                        
                         <?php
                     }else{
                         echo "Dono: ";
@@ -210,8 +233,19 @@ if ($_SESSION["logado"] == "on") {
                     <br>
                     <br>
                     
-                    <h4 style="">Conte-nos aqui, sua experiência com essa obra:</h4>
-                    <form style="" action="feedbacks.php?idlivro=<?= $livro["idLivro"]; ?>" method="post">
+                    <?php
+                    if ($livro["idUser"] == $_SESSION["idUser"]) {
+                       echo "<br>";
+                       echo "<br>";
+                       echo "<br>";
+                       echo "<br>";
+                       
+                    }
+                    
+                        ?>
+                    
+                    <h4 style="text-align:center;">Conte-nos aqui, sua experiência com essa obra:</h4>
+                    <form style="text-align:center;" action="feedbacks.php?idlivro=<?= $livro["idLivro"]; ?>" method="post">
                         <textarea rows="3" cols="60" maxlength="500" name="fb"> </textarea>
                         <br>
 

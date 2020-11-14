@@ -1,24 +1,21 @@
 <?php
 session_start();
+//ob_start();
+
 require("../conexaobd.php");
 $cnx= conexao();
-$sql2="SELECT * FROM livros";
+$pesquisa= strip_tags($_POST["pesquisa"]);
 
-$resultado2=mysqli_query($cnx,$sql2);
-while($livru=mysqli_fetch_assoc($resultado2)){
-    
-    
-    
-    $livros[]=$livru;
+$sql="SELECT * from livros where nomeLivro LIKE '$pesquisa%'";
+$resultado=mysqli_query($cnx,$sql);
 
+
+
+while($registro=mysqli_fetch_assoc($resultado)){
+    $livros[]=$registro;
+    
 }
-
-
 if($_SESSION["logado"]=="on"){
-    
-    
-
-
 ?>
 <!doctype html>
 <html lang="pt">

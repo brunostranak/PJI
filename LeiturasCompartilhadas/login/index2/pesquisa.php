@@ -6,7 +6,7 @@ require("../conexaobd.php");
 $cnx= conexao();
 $pesquisa= strip_tags($_POST["pesquisa"]);
 
-$sql="SELECT * from usuarios where nomeUser LIKE '%$pesquisa%'";
+$sql="SELECT * from usuarios where nomeUser LIKE '$pesquisa%'";
 $resultado=mysqli_query($cnx,$sql);
 
 
